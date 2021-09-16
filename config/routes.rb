@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  # 会員側のルーティング設定
-  # devise_for :customers
-  # root
-  
-  # 管理者側のルーティング設定
+
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
+  }
+
   namespace :admin do
-    get 'items' => 'admin/items#index'
+    devise_for :admins, controllers: {
+      sessions: 'admins/sessions',
+      passwords: 'admins/passwords',
+      registrations: 'admins/registrations'
+    }
   end
+
 end
