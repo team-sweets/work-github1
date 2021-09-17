@@ -3,9 +3,13 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
+    @product = Product.new(product_params)
+    @product.save
+    redirect_to product_path
   end
 
   def show
