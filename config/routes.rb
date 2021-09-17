@@ -1,77 +1,11 @@
 Rails.application.routes.draw do
 
-  namespace :customer do
-    get 'shipping_addresses/index'
-    get 'shipping_addresses/create'
-    get 'shipping_addresses/destroy'
-    get 'shipping_addresses/edit'
-    get 'shipping_addresses/update'
-  end
-  namespace :customer do
-    get 'orders/new'
-    get 'orders/log'
-    get 'orders/create'
-    get 'orders/thanx'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'orders/top'
-    get 'orders/show'
-    get 'orders/update'
-  end
-  namespace :admin do
-    get 'order_details/update'
-  end
-  namespace :customer do
-    get 'cart_items/index'
-    get 'cart_items/update'
-    get 'cart_items/create'
-    get 'cart_items/destroy'
-    get 'cart_items/destroy_all'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/create'
-    get 'genres/edit'
-    get 'genres/update'
-  end
-  namespace :customer do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :customer do
-    get 'products/top'
-    get 'products/about'
-    get 'products/index'
-    get 'products/show'
-  end
-  namespace :admin do
-    get 'products/index'
-    get 'products/new'
-    get 'products/create'
-    get 'products/show'
-    get 'products/edit'
-    get 'products/update'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-  end
-  namespace :customer do
-    get 'customers/show'
-    get 'customers/quit'
-    get 'customers/out'
-    get 'customers/edit'
-    get 'customers/update'
-  end
   devise_for :customer, controllers: {
     sessions: 'customer/sessions',
     passwords: 'customer/passwords',
     registrations: 'customer/registrations'
   }
+
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     passwords: 'admin/passwords',
