@@ -9,7 +9,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to product_path
+    redirect_to product_path(product.id)
   end
 
   def show
@@ -19,5 +19,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def product_params
+   params.require(:product).permit(:image, :title, :description, :genre, :tax_out_price)
   end
 end
