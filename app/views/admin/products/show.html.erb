@@ -1,2 +1,32 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+     <h2>商品詳細</h2>
+         <table class="table">
+         <thead classs="col-md-3">
+         <!-- <attachment_image_tag @user, :profile_image, size: "40x40", fallback: "no_image.jpg"  -->
+          </thead>
+           <tbody class=“col-md-9”>
+            <tr>
+                <th>商品名</th>
+                <td><%= @product.name %> </td>
+            </tr>
+            <tr>
+                <th>商品説明</th>
+                <td><%= @product.description %></td>
+            </tr>
+            <tr>
+                <th>ジャンル</th>
+                <td><%= @product.genre_id %></td>
+            </tr>
+            <tr>
+                <th>税込価格（税抜価格）</th>
+                <td><%= @product.tax_out_price %></td>
+            </tr>
+            <tr>
+                <th>販売ステータス</th>
+                <td><%= @product.ales_status %>
+            </tr>
+           </tbody>
+          </table>
+   </div>
+</div>
