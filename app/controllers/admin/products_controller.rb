@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   def index
+
   end
 
   def new
@@ -13,6 +14,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
+  
   end
 
   def edit
