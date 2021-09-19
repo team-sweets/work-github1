@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+
+
   def index
 
   end
@@ -10,11 +12,12 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to product_path(product.id)
+    redirect_to admin_products_path(@product.id)
   end
 
   def show
-  
+  @product = Product.find(params[:id])
+  @product_new = Product.new
   end
 
   def edit
@@ -26,6 +29,6 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-   params.require(:product).permit(:image, :title, :description, :genre, :tax_out_price)
+   params.require(:product).permit(:image, :title, :description, :genre, :tax_out_price, :sales_status)
   end
 end

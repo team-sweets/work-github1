@@ -47,25 +47,25 @@ Rails.application.routes.draw do
     get 'customers' => 'customers#index'
     get 'customers/:id' => 'customers#show'
     get 'customers/:id/edit' => 'customers#edit'
-    put 'customers/:id' => 'customers#update'
+    patch 'customers/:id' => 'customers#update'
 
     get 'products' => 'products#index'
     get	'products/new' => 'products#new'
     post	'products'  => 'products#create'
     get	'products/:id' => 'products#show'
     get	'products/:id/edit' => 'products#edit'
-    put	'products/:id' => 'products#update'
+    patch	'products/:id' => 'products#update'
 
     get	'genres' => 'genres#index'
     post 'genres' => 'genres#create'
     get	'genres/:id/edit' => 'genres#edit'
-    put	'genres/:id' => 'genres#update'
+    patch	'genres/:id' => 'genres#update'
 
     get	'top' => 'orders#top'
     get	'orders/:id' => 'orders#show'
-    put	'orders/:id' => 'orders#update'
+    patch	'orders/:id' => 'orders#update'
 
-    put	'order_details/:id' => 'order_details#update'
+    patch	'order_details/:id' => 'order_details#update'
 
  end
 
