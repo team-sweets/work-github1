@@ -36,11 +36,11 @@ Rails.application.routes.draw do
   get 'orders' =>	'customer/orders#index'
   get 'orders/:id' =>	'customer/orders#show'
 
-  get	'shipping_adresses' => 'customer/shippping_adress#index'
-  post 'shipping_adresses' =>	'customer/shippping_adress#create'
-  delete 'shipping_adresses/:id' =>	'customer/shippping_adress#destroy'
-  get	'shipping_adresses/:id/edit' =>	'customer/shippping_adress#edit'
-  put	'shipping_adresses/:id' => 'customer/shippping_adress#update'
+  get	'shipping_addresses' => 'customer/shipping_addresses#index'
+  post 'shipping_addresses' =>	'customer/shipping_addresses#create'
+  delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy'
+  get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit'
+  put	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
 
   namespace :admin do
 

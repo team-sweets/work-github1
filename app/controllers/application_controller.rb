@@ -5,11 +5,7 @@ class ApplicationController < ActionController::Base
 
   #ログアウト時のパスの変更
   def after_sign_out_path_for(resource)
-    if current_customer
       root_path
-    else
-      new_admin_session_path
-    end
   end
 
   # 新規登録後のリダイレクト先（顧客側）
