@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get	'customers/quit' =>	'customer/customers#quit'
   patch 'customers/out' => 'customer/customers#out'
   get	'customers/edit' =>	'customer/customers#edit'
-  patch 'customers' => 'customer/customers#update'
+  put 'customers' => 'customer/customers#update'
 
   root to: 'customer/homes#top'
   get	'about' => 'customer/homes#about'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get	'products/:id' => 'customer/products#show'
 
   get	'cart_items' => 'customer/cart_items#index'
-  patch	'cart_items/:id' => 'customer/cart_items#update'
+  put	'cart_items/:id' => 'customer/cart_items#update'
   post 'cart_items' => 'customer/cart_items#create'
   delete 'cart_items/:id' => 'customer/cart_items#destroy'
   delete 'cart_items' => 'customer/cart_items#destroy_all'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'
   delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy'
   get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit'
-  patch	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
+  put	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
 
   namespace :admin do
 
@@ -52,8 +52,8 @@ Rails.application.routes.draw do
     get 'products' => 'products#index'
     get	'products/new' => 'products#new'
     post	'products'  => 'products#create'
-    get	'products/:id' => 'products#show', as: 'product'
-    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
+    get	'products/:id' => 'products#show'
+    get	'products/:id/edit' => 'products#edit'
     patch	'products/:id' => 'products#update'
 
     get	'genres' => 'genres#index'
