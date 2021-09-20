@@ -17,14 +17,14 @@
 
         <div class="navbar-brand col-2">
           <%= link_to admin_top_path do %>
-            <span class="text-white">LOGO</span>
+            <span class="text-black">LOGO</span>
           <% end %>
         </div>
 
         <nav-item>
           <%= link_to admin_products_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">商品一覧</span>
+              <span class="text-black">商品一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -32,7 +32,7 @@
         <nav-item>
           <%= link_to admin_customers_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">会員一覧</span>
+              <span class="text-black">会員一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -40,7 +40,7 @@
         <nav-item>
           <%= link_to admin_top_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">注文履歴一覧</span>
+              <span class="text-black">注文履歴一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -48,7 +48,7 @@
         <nav-item>
           <%= link_to admin_genres_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">ジャンル一覧</span>
+              <span class="text-black">ジャンル一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -56,7 +56,7 @@
         <nav-item>
           <%= link_to destroy_admin_session_path, method: :delete do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">logout</span>
+              <span class="text-black">logout</span>
             </i>
           <% end %>
         </nav-item>
@@ -66,14 +66,14 @@
 
         <div class="navbar-brand col-2">
           <%= link_to root_path do %>
-            <span class="text-white">LOGO</span>
+            <span class="text-black">LOGO</span>
           <% end %>
         </div>
 
         <nav-item>
           <%= link_to customers_path do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">マイページ</span>
+              <span class="text-black">マイページ</span>
             </i>
           <% end %>
         </nav-item>
@@ -81,7 +81,7 @@
         <nav-item>
           <%= link_to products_path do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">商品一覧</span>
+              <span class="text-black">商品一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -89,7 +89,7 @@
         <nav-item>
           <%= link_to cart_items_path do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">カート</span>
+              <span class="text-black">カート</span>
             </i>
           <% end %>
         </nav-item>
@@ -97,7 +97,7 @@
         <nav-item>
           <%= link_to destroy_customer_session_path, method: :delete do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">logout</span>
+              <span class="text-black">logout</span>
             </i>
           <% end %>
         </nav-item>
@@ -108,7 +108,7 @@
         <nav-item>
           <%= link_to about_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">About</span>
+              <span class="text-black">About</span>
             </i>
           <% end %>
         </nav-item>
@@ -116,7 +116,7 @@
         <nav-item>
           <%= link_to products_path do %>
             <li class="fas fa-book-open text-light nav-link">
-              <span class="text-white">商品一覧</span>
+              <span class="text-black">商品一覧</span>
             </i>
           <% end %>
         </nav-item>
@@ -124,7 +124,7 @@
         <nav-item>
           <%= link_to new_customer_registration_path do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">新規登録</span>
+              <span class="text-black">新規登録</span>
             </i>
           <% end %>
         </nav-item>
@@ -132,7 +132,7 @@
         <nav-item>
           <%= link_to new_customer_session_path do %>
             <li class="fas fa-sign-out-alt text-light nav-link">
-              <span class="text-white">ログイン</span>
+              <span class="text-black">ログイン</span>
             </i>
           <% end %>
         </nav-item>
@@ -140,9 +140,9 @@
     <% end %>
 
   </header>
-
+<main>
       <%= yield %>
-
+</main>
     <footer>
     </footer>
   </body>
