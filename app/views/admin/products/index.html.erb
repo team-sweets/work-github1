@@ -20,7 +20,7 @@
         <% @products.each do |product| %>
           <tr>
             <td class="text-left" ><%= product.id %></td>
-            <td class="text-left"><%= link_to product.name, admin_products_path(product) , class: "product_#{product.id}" %></td>
+            <td class="text-left"><%= link_to product.name, admin_product_path(product) , class: "product_#{product.id}" %></td>
             <td class = "text-left"><%= product.tax_out_price %></td>
             <td class = "text-left"><%= product.genre.name%></td>
             <td class = "text-left">
