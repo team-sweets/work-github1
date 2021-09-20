@@ -1,2 +1,37 @@
-
-
+<div class='container'>
+  <h2>商品一覧</h2>
+  <div class='row'>
+    <div>
+        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new-product" do %>
+        <i class="fas fa-plus">新規登録</i>
+        <% end %>
+    </div>
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td class="text-left" ><%= product.id %></td>
+            <td class="text-right col-xs-1"><%= link_to product.name, admin_products_new_path(product) , class: "product_#{product.id}" %></td>
+            <td class = "text-right col-xs-3"><%= product.tax_out_price %></td>
+            <td class = "text-right col-xs-1"><%= product.genre_id %></td>
+            <td class = "text-right col-xs-3">
+            <%　if product.sales_status == TRUE %>
+               <p>販売中</p>
+            <% else　product.sales_status == FALSE　%>
+            　 <p>販売停止中</p>
+            <% end %>
+            </td>
+          </tr>
+      </tbody>
+      <%= paginate @products %>
+    </table>
+  </div>

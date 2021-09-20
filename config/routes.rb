@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get 'orders' =>	'customer/orders#index'
   get 'orders/:id' =>	'customer/orders#show'
 
-  get	'shipping_adresses' => 'customer/shippping_adress#index'
+  get	'shipping_adressresses' => 'customer/shippping_adress#index'
   post 'shipping_adresses' =>	'customer/shippping_adress#create'
   delete 'shipping_adresses/:id' =>	'customer/shippping_adress#destroy'
   get	'shipping_adresses/:id/edit' =>	'customer/shippping_adress#edit'
