@@ -11,6 +11,6 @@ class Product < ApplicationRecord
  has_many :order_details
 
   def add_tax_tax_out_price
-    (self.price * 1.10).round
+    (self.tax_out_price * 1.10).round
   end
 end
