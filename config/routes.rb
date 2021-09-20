@@ -58,13 +58,8 @@ Rails.application.routes.draw do
 
     get	'genres' => 'genres#index'
     post 'genres' => 'genres#create'
-<<<<<<< HEAD
-    get	'genres/:id/edit' => 'genres#edit'
-    patch	'genres/:id' => 'genres#update'
-=======
     get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
     patch	'genres/:id/edit' => 'genres#update'
->>>>>>> origin/develop
 
     get	'top' => 'orders#top'
     get	'orders/:id' => 'orders#show'
