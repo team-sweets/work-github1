@@ -1,1 +1,30 @@
-tomop
+<h2>商品詳細</h2>
+  <div class='row'>
+     <tr class="col-md-12">
+         <div classs="col-md-4">
+          <%= attachment_image_tag @product, :image, size: "300x300", fallback: "no_image.jpg"  %>
+          </div>
+           <div class=“col-md-3”>
+                  商品名<br>
+                  商品説明<br>
+                  ジャンル<br>
+                  税込価格<br>
+                  （税抜価格）<br>
+                  販売ステータス<br>
+           </div>
+           <div class="col-md-5">
+                  <%= @product.name %><br>
+                  <%= @product.description %><br>
+                  <%= @product.genre.name %><br>
+                  <%= @product.tax_out_price.to_s(:delimited) %><br>
+                  (<%= @product.tax_out_price %>)円<br>
+                  <% if @product.sales_status == true %>
+                  <p>販売中</p>
+                  <% else @product.sales_status == false %>
+                  <p>販売停止中</p>
+                  <% end %><br>
+                  <%= link_to "編集する", admin_products_new_path, class: "btn btn-success"%>
+           </div>
+     </tr>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 <div class='container'>
   <h2>商品一覧</h2>
   <div class='row'>
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="text-right">
         <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new-product" do %>
-        <i>新規登録</i>
+        <i class="fas fa-plus"></i>
         <% end %>
     </div>
     <table class="table striped">
@@ -20,13 +20,13 @@
         <% @products.each do |product| %>
           <tr>
             <td class="text-left" ><%= product.id %></td>
-            <td class="text-right col-xs-1"><%= link_to product.name, admin_products_new_path(product) , class: "product_#{product.id}" %></td>
-            <td class = "text-right col-xs-3"><%= product.tax_out_price %></td>
-            <td class = "text-right col-xs-1"><%= product.genre_id %></td>
-            <td class = "text-right col-xs-3">
-            <% if product.sales_status == TRUE %>
+            <td class="text-left"><%= link_to product.name, admin_products_path(product) , class: "product_#{product.id}" %></td>
+            <td class = "text-left"><%= product.tax_out_price %></td>
+            <td class = "text-left"><%= product.genre.name%></td>
+            <td class = "text-left">
+            <% if product.sales_status == true %>
                <p>販売中</p>
-            <% else product.sales_status == FALSE %>
+            <% else product.sales_status == false %>
                <p>販売停止中</p>
             <% end %>
             </td>
