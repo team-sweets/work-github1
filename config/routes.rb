@@ -44,28 +44,28 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    get 'customers' => 'customers#index'
-    get 'customers/:id' => 'customers#show'
-    get 'customers/:id/edit' => 'customers#edit'
-    patch 'customers/:id' => 'customers#update'
+  get 'customers' => 'customers#index'
+  get 'customers/:id' => 'customers#show'
+  get 'customers/:id/edit' => 'customers#edit'
+  patch 'customers/:id' => 'customers#update'
 
-    get 'products' => 'products#index'
-    get	'products/new' => 'products#new'
-    post	'products'  => 'products#create'
-    get	'products/:id' => 'products#show'
-    get	'products/:id/edit' => 'products#edit'
-    patch	'products/:id' => 'products#update'
+  get 'products' => 'products#index'
+  get	'products/new' => 'products#new'
+  post	'products'  => 'products#create'
+  get	'products/:id' => 'products#show', as: 'product'
+  get	'products/:id/edit' => 'products#edit', as: 'product_edit'
+  patch	'products/:id' => 'products#update'
 
-    get	'genres' => 'genres#index'
-    post 'genres' => 'genres#create'
-    get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
-    patch	'genres/:id/edit' => 'genres#update'
+  get	'genres' => 'genres#index'
+  post 'genres' => 'genres#create'
+  get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
+  patch	'genres/:id/edit' => 'genres#update'
 
-    get	'top' => 'orders#top'
-    get	'orders/:id' => 'orders#show'
-    patch	'orders/:id' => 'orders#update'
+  get	'top' => 'orders#top'
+  get	'orders/:id' => 'orders#show'
+  patch	'orders/:id' => 'orders#update'
 
-    patch	'order_details/:id' => 'order_details#update'
+  patch	'order_details/:id' => 'order_details#update'
 
  end
 
