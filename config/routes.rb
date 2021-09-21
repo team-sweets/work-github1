@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get	'customers/quit' =>	'customer/customers#quit'
   patch 'customers/out' => 'customer/customers#out'
   get	'customers/edit' =>	'customer/customers#edit'
-  patch 'customers' => 'customer/customers#update'
+  put 'customers' => 'customer/customers#update'
 
   root to: 'customer/homes#top'
   get	'about' => 'customer/homes#about'
@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   get	'products/:id' => 'customer/products#show'
 
   get	'cart_items' => 'customer/cart_items#index'
+
   patch	'cart_items/:id' => 'customer/cart_items#update', as: 'cart_items_update'
   post 'cart_items' => 'customer/cart_items#create', as: 'cart_items_create'
   delete 'cart_items/:id' => 'customer/cart_items#destroy', as: 'cart_items_destroy'
   delete 'cart_items' => 'customer/cart_items#destroy_all', as: 'cart_items_destroy_all'
+
 
   get 'orders/new' => 'customer/orders#new'
   post 'orders/log' => 'customer/orders#log'
@@ -38,34 +40,36 @@ Rails.application.routes.draw do
 
   get	'shipping_addresses' => 'customer/shipping_addresses#index'
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'
-  delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy'
-  get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit'
-  patch	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
+  delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy', as: 'delete_address'
+  get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit', as: 'edit_address'
+  put	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
 
   namespace :admin do
 
-    get 'customers' => 'customers#index'
-    get 'customers/:id' => 'customers#show'
-    get 'customers/:id/edit' => 'customers#edit'
-    patch 'customers/:id' => 'customers#update'
+  get 'customers' => 'customers#index'
+  get 'customers/:id' => 'customers#show'
+  get 'customers/:id/edit' => 'customers#edit'
+  patch 'customers/:id' => 'customers#update'
+
 
     get 'products' => 'products#index'
     get	'products/new' => 'products#new'
     post	'products'  => 'products#create'
     get	'products/:id' => 'products#show', as: 'product'
-    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
     patch	'products/:id' => 'products#update'
+    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
 
-    get	'genres' => 'genres#index'
-    post 'genres' => 'genres#create'
-    get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
-    patch	'genres/:id/edit' => 'genres#update'
 
-    get	'top' => 'orders#top'
-    get	'orders/:id' => 'orders#show'
-    patch	'orders/:id' => 'orders#update'
+  get	'genres' => 'genres#index'
+  post 'genres' => 'genres#create'
+  get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
+  patch	'genres/:id/edit' => 'genres#update'
 
-    patch	'order_details/:id' => 'order_details#update'
+  get	'top' => 'orders#top'
+  get	'orders/:id' => 'orders#show'
+  patch	'orders/:id' => 'orders#update'
+
+  patch	'order_details/:id' => 'order_details#update'
 
  end
 
