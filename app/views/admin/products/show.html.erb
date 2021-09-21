@@ -1,3 +1,4 @@
+<div class='container'>
 <h2>商品詳細</h2>
   <div class='row'>
      <tr class="col-md-12">
@@ -16,7 +17,7 @@
                   <%= @product.name %><br>
                   <%= @product.description %><br>
                   <%= @product.genre.name %><br>
-                  <%= @product.tax_out_price.to_s(:delimited) %><br>
+                  <%= @product.add_tax_tax_out_price.to_s(:delimited) %><br>
                   (<%= @product.tax_out_price %>)円<br>
                   <% if @product.sales_status == true %>
                   <p>販売中</p>
