@@ -53,8 +53,8 @@ Rails.application.routes.draw do
     get	'products/new' => 'products#new'
     post	'products'  => 'products#create'
     get	'products/:id' => 'products#show', as: 'product'
-    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
     patch	'products/:id' => 'products#update'
+    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
 
     get	'genres' => 'genres#index'
     post 'genres' => 'genres#create'
