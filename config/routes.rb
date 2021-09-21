@@ -49,12 +49,14 @@ Rails.application.routes.draw do
   get 'customers/:id/edit' => 'customers#edit'
   patch 'customers/:id' => 'customers#update'
 
-  get 'products' => 'products#index'
-  get	'products/new' => 'products#new'
-  post	'products'  => 'products#create'
-  get	'products/:id' => 'products#show', as: 'product'
-  get	'products/:id/edit' => 'products#edit', as: 'product_edit'
-  patch	'products/:id' => 'products#update'
+
+    get 'products' => 'products#index'
+    get	'products/new' => 'products#new'
+    post	'products'  => 'products#create'
+    get	'products/:id' => 'products#show', as: 'product'
+    patch	'products/:id' => 'products#update'
+    get	'products/:id/edit' => 'products#edit', as: 'product_edit'
+
 
   get	'genres' => 'genres#index'
   post 'genres' => 'genres#create'
