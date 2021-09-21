@@ -38,8 +38,8 @@ Rails.application.routes.draw do
 
   get	'shipping_addresses' => 'customer/shipping_addresses#index'
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'
-  delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy'
-  get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit'
+  delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy', as: 'delete_address'
+  get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit', as: 'edit_address'
   put	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
 
   namespace :admin do

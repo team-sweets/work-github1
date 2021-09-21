@@ -1,44 +1,46 @@
 <div class="container">
   <h2>配送先登録/一覧</h2>
-  <div class="form-group">
 
-    <%= form_with(model: @shipping_address, :url => {:controller => "customer/shipping_addresses"}) do |f| %>
+    <div class="form-group">
+      <%= form_with(model: @shipping_address, :url => {:controller => "customer/shipping_addresses"}) do |f| %>
 
-      <div class="text_field">
-        <p>郵便番号（ハイフンなし）</p>
-          <%= f.text_field :postal_code %>
-      </div>
+        <div class="text_field">
+          <p>郵便番号（ハイフンなし）</p>
+            <%= f.text_field :postal_code %>
+        </div>
 
-      <div class="text_field">
-        <p>住所</p>
-          <%= f.text_area :address %>
-      </div>
+        <div class="text_field">
+          <p>住所</p>
+            <%= f.text_area :address %>
+        </div>
 
-      <div class="text_field">
-        <p>宛名</p>
-          <%= f.text_area :name %>
-      </div>
+        <div class="text_field">
+          <p>宛名</p>
+            <%= f.text_area :name %>
+        </div>
 
-      <div class="text_field">
-        <p></p>
-          <%= f.submit '新規登録', class:"btn btn-success" %>
-      </div>
+        <div class="text_field">
+          <p></p>
+            <%= f.submit '新規登録', class:"btn btn-success" %>
+        </div>
 
-    <% end %>
+      <% end %>
+    </div>
 
-  </div>
+    <div>
+        <table class="table table-bordered table-condensed" >
+          <% @shipping_addresses.each do |shipping_address| %>
+            <tbody>
 
-      <table class="table table-bordered table-condensed" >
-        <% @shipping_addresses.each do |shipping_address| %>
-          <tbody>
+                <td><%= shipping_address.postal_code %></td>
+                <td><%= shipping_address.address %></td>
+                <td><%= shipping_address.name %></td>
+                <td><%= link_to "編集", edit_address_path(shipping_address.id), class: 'btn btn-warning' %></td>
+                <td data-confirm="本当に消しますか？"><%= link_to "削除", delete_address_path(shipping_address.id), class: 'btn-sm btn-danger', method: :delete %></td>
 
-              <td><%= shipping_address.postal_code %></td>
-              <td><%= shipping_address.address %></td>
-              <td><%= shipping_address.name %></td>
-
-          </tbody>
-        <% end %>
-      </table>
-
+            </tbody>
+          <% end %>
+        </table>
+    </div>
 
 </div>

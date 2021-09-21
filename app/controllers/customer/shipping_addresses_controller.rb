@@ -2,6 +2,7 @@ class Customer::ShippingAddressesController < ApplicationController
 
   def index
     @shipping_address = ShippingAddress.new
+    @shipping_address.customer_id == current_customer.id
     @shipping_addresses = ShippingAddress.all
   end
 
@@ -12,15 +13,21 @@ class Customer::ShippingAddressesController < ApplicationController
       redirect_to shipping_addresses_path
       flash[:notice] = "新たに住所が追加されました。"
     else
-      @shipping_address = ShippingAddress.all
+      @shipping_addresses = ShippingAddress.all
       render :index
     end
   end
 
   def destroy
+    @shipping_address = ShippingAddress.find(params[:id])
+    @shipping_address.destroy
+    @shipping_addresses = ShippingAddress.all
+    redirect_to shipping_addresses_path
+    flash[:notice] = "住所が1件削除されました"
   end
 
   def edit
+
   end
 
   def update
