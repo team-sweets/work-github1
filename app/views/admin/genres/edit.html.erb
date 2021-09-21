@@ -1,14 +1,22 @@
- <%= form_with model:@genre, url:admin_genres_edit_path(@genre.id), local:true do |f| %>
-  <table class='table table-hover table-inverse'>
-     <thead>
-         <tr>
-          <h2>ジャンル編集</h2>
+<div class="container"> 
+<div class="row">
+  <div class="col-lg-8" >
 
-            <th><h4>ジャンル名</h4></th>
-            <th><%= f.text_field :name %></th>
-            <th><%= f.submit '変更を保存' ,class: 'btn btn-success'%></th>
+ <%= form_with model:@genre, url:admin_genres_edit_path(@genre.id), local:true do |f| %>
+
+     <h3><span style="background-color:#dcdcdc">ジャンル編集</span></h3>
+      <table class='table table-hover table-inverse'>
+       <thead>
+           <tr>
+            <th style="border:none;"><h6>ジャンル名</h6></th>
+            <th style="border:none;"><%= f.text_field :name %></th>
+            <th style="border:none;"><%= f.submit '変更を保存' ,class: 'btn btn-success'%></th>
 
          </tr>
      </thead>
    </table>
 <% end %>
+
+ </div>
+ </div>
+</div>
