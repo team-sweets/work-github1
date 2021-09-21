@@ -1,72 +1,72 @@
-<h2>新規会員登録</h2>
+<div class="container">
+  <h2>新規会員登録</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<%#= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "customer/shared/error_messages", resource: resource %>
 
-  <%= render "customer/shared/error_messages", resource: resource %>
+    <div class="kanji_name">
+      <div class="field">
+        <%= f.label :（姓） %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %>
+      </div>
 
-  <div class="kanji_name">
-    <div class="field">
-      <%= f.label :（姓） %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %>
+      <div class="field">
+        <%= f.label :（名） %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "名" %>
+      </div>
+    </div>
+
+    <div class="kana_name">
+      <div class="field">
+        <%= f.label :（セイ） %><br />
+        <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "セイ" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :（メイ） %><br />
+        <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "メイ" %>
+      </div>
     </div>
 
     <div class="field">
-      <%= f.label :（名） %><br />
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "名" %>
-    </div>
-  </div>
-
-  <div class="kana_name">
-    <div class="field">
-      <%= f.label :（セイ） %><br />
-      <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "セイ" %>
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :（メイ） %><br />
-      <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "メイ" %>
+      <%= f.label :郵便番号（ハイフンなし） %><br />
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "郵便番号" %>
     </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :住所 %><br />
+      <%= f.text_field :address, autofocus: true, autocomplete: "住所" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :郵便番号（ハイフンなし） %><br />
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "郵便番号" %>
-  </div>
+    <div class="field">
+      <%= f.label :電話番号（ハイフンなし） %><br />
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "電話番号（ハイフンなし）" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :住所 %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "住所" %>
-  </div>
+    <div class="field">
+      <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :電話番号（ハイフンなし） %><br />
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "電話番号（ハイフンなし）" %>
-  </div>
+    <div class="field">
+      <%= f.label :パスワード（確認用） %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "新規登録" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :パスワード（確認用） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <span>既に登録済みの方</span>
+    <span><%= link_to "こちら", new_customer_session_path %>からログインしてください</span>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-
-  <span>既に登録済みの方</span>
-  <span><%= link_to "こちら", new_customer_session_path %>からログインしてください</span>
-
-<% end %>
+  <% end %>
+</div>
