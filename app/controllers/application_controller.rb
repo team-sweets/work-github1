@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       root_path
   end
 
-  # 新規登録後のリダイレクト先（顧客側）
+  # ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
       if current_customer
         flash[:notice] = "ログインに成功しました"
