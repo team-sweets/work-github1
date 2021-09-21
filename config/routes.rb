@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   get	'products/:id' => 'customer/products#show'
 
   get	'cart_items' => 'customer/cart_items#index'
-  patch	'cart_items/:id' => 'customer/cart_items#update'
-  post 'cart_items' => 'customer/cart_items#create'
-  delete 'cart_items/:id' => 'customer/cart_items#destroy'
-  delete 'cart_items' => 'customer/cart_items#destroy_all'
+  patch	'cart_items/:id' => 'customer/cart_items#update', as: 'cart_items_update'
+  post 'cart_items' => 'customer/cart_items#create', as: 'cart_items_create'
+  delete 'cart_items/:id' => 'customer/cart_items#destroy', as: 'cart_items_destroy'
+  delete 'cart_items' => 'customer/cart_items#destroy_all', as: 'cart_items_destroy_all'
 
   get 'orders/new' => 'customer/orders#new'
   post 'orders/log' => 'customer/orders#log'

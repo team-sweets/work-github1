@@ -1,2 +1,17 @@
-<h1>Customer::Products#show</h1>
-<p>Find me in app/views/customer/products/show.html.erb</p>
+<div class = "container">
+  <div class = "row">
+  <div class="col-lg-4 col-lg-offset-2">
+  <%= attachment_image_tag @product, :image ,size: "300x200" %>
+  </div>
+  
+  <div class="col-lg-6">
+  <h4><strong><%= @product.name %></strong></h4>
+  <h5><%= @product.description %></h5>
+  <h5>¥ <%= @product.tax_out_price.to_s(:delimited) %>（税込）</h5>
+  </div>
+
+ </div>
+</div>
+
+
+
