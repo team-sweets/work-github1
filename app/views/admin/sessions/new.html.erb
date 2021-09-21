@@ -1,9 +1,13 @@
-<h2>ログイン</h2>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+      <div style="background-color: silver; display: inline;"　>管理者ログイン</div>
 
 <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
   <div class="form-group">
     <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
   </div>
 
   <div class="form-group">
@@ -14,7 +18,7 @@
 
 
   <div class="form-group">
-    <%= f.submit "ログイン", class: 'btn btn-success' %>
+    <%= f.submit "ログイン", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
