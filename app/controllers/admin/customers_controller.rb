@@ -5,7 +5,7 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @customer = Customer.with_deleted.find
+    #@customer = Customer.with_deleted.find
   end
 
   def edit

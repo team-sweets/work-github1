@@ -33,10 +33,10 @@
 
             <div class="form-group">
           <%= f.label :"販売ステータス", class: "control-label" %>
-          <%= f.radio_button :sales_status, :on_sale %>
-          <%= f.label :sales_status_on_sale, '販売中' %>
-          <%= f.radio_button :sales_status, :sold_out %>
-          <%= f.label :sales_status_sold_out, '販売停止中' %>
+          <%= f.radio_button :sales_status, :true %>
+          <%= f.label :sales_status, '販売中' %>
+          <%= f.radio_button :sales_status, :false %>
+          <%= f.label :sales_status, '販売停止中' %>
           <%#= f.select :is_sale, [['販売中', true], ['販売停止', false]], prompt: "-- 選択してください --", class: "col-sm-9 is_sale" %>
           </div>
 

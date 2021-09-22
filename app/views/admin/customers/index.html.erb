@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <div style="background-color: silver; display: inline;">会員一覧</div>
-    <table class="table table-hover table-bordered table-condensed">
+    <table class="table striped">
       <thead>
-        <tr class="info">
+        <tr>
           <th>会員ID</th>
           <th>氏名</th>
           <th>メールアドレス</th>
@@ -19,17 +19,16 @@
               <%= customer.id %>
             </td>
             <td class="text-left">
-              <%= link_to admin_customer_path(customer) %>
-                <%= customer.full_name %>
+              <%= link_to customer.full_name, admin_customer_path(customer), class: "text-dark" %>
             </td>
             <td class="text-left">
               <%= customer.email %>
             </td>
             <td class="col-xs-2">
               <% if customer.is_deleted == true %>
-                <p><i class="fas fa-bullseye blue"></i>退会</p>
+                <div class="text-secondary">退会</div>
               <% else %>
-                <p><i class="fas fa-bullseye red"></i>有効</p>
+                <div class="text-success">有効</div>
               <% end %>
             </td>
           </tr>
