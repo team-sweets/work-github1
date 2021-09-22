@@ -47,9 +47,9 @@ Rails.application.routes.draw do
   namespace :admin do
 
   get 'customers' => 'customers#index'
-  get 'customers/:id' => 'customers#show'
-  get 'customers/:id/edit' => 'customers#edit'
-  patch 'customers/:id' => 'customers#update'
+  get 'customers/:id' => 'customers#show', as: 'customer'
+  get 'customers/:id/edit' => 'customers#edit', as: 'customer_edit'
+  patch 'customers/:id' => 'customers#update', as: 'customer_update'
 
 
     get 'products' => 'products#index'
