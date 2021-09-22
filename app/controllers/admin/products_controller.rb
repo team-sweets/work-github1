@@ -9,11 +9,8 @@ class Admin::ProductsController < ApplicationController
 
  def create
   @product = Product.new(product_params)
-  if @product.save
+  @product.save
   redirect_to admin_products_path(@product.id)
-  else
-   render :new
-  end
  end
 
  def show
@@ -36,4 +33,4 @@ class Admin::ProductsController < ApplicationController
   def product_params
    params.require(:product).permit(:image, :name, :description, :genre_id, :tax_out_price, :sales_status)
   end
-end
+ end
