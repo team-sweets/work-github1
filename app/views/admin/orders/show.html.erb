@@ -1,0 +1,65 @@
+<div class='container'>
+  <h2>注文履歴詳細</h2>
+  <div class='row'>
+    <%= form_with model: @order, url:admin_top_path(@order) local:true do |f| %>
+    <tr class="col-md-12">
+      <div class="col-md-3">
+        購入者<br>
+        注文日<br>
+        配送先<br>
+        <th></th><br>
+        支払方法<br>
+        注文ステータス
+      </div>
+      <div class="col-md-9">
+        <%= @order.address_name %><br>
+        <%= @order.created_at %><br>
+        <%= @order.shipping_postal_code %> <%= @order.shipping_address %><br>
+        <%= @order.address_name %><br>
+        <%= @order.payment_method %><br>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" %>
+        <%= @order.orders_status %>
+      </div>
+    </tr>
+    <tr class="col-md-12">
+      <div class="col-md-7">
+        <table class="table striped">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="text-left" ><%= order.name %></td>
+              <td class="text-right col-xs-1"><%= order.purchased_price %></td>
+              <td class = "text-right col-xs-3"><%= order.quantity %></td>
+              <td class = "text-right col-xs-1"><%= order. %></td>
+              <td class = "text-right col-xs-3"><%= order.production_status %></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class="col-md-5">
+          <div>
+            <p>商品合計</p>
+
+          </div>
+          <div>
+            <p>送料</p>
+            <%= order.postage %>
+          </div>
+          <div>
+            <P>請求金額合計</p>
+            <%= order.total_price %>
+          </div>
+        </div>
+    </tr>
+    <% end %>
+  </div>
+</div>

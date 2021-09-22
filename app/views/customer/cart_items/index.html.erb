@@ -17,11 +17,11 @@
 
         <% @cart_items.each do |cart_item| %>
         <tr>
-           <td><%= attachment_image_tag cart_item, :image,size: "50x30" %>  <%= cart_item.name %></td>
-           <td><%= cart_item.tax_out_price.to_s(:delimited) %></td>
+           <td><%= attachment_image_tag cart_item.product, :image,size: "50x30" %>  <%= cart_item.product.name %></td>
+           <td><%= cart_item.product.tax_out_price.to_s(:delimited) %></td>
            <td><%= link_to "変更",  cart_items_path ,class: 'btn btn-success' %></td>
            <td></td>
-           <td  align="center"><%= link_to "削除する", cart_items_path(product) ,method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'},class: 'btn btn-danger' %></td>
+           <td  align="center"><%#= link_to "削除する", cart_items_path(product) ,method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'},class: 'btn btn-danger' %></td>
         </tr>
         <% end %>
     </table>
