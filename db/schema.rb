@@ -87,9 +87,9 @@ ActiveRecord::Schema.define(version: 2021_09_17_044823) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "tax_out_price", null: false
-    t.boolean "sales_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "sales_status", default: true, null: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

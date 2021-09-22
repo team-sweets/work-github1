@@ -1,9 +1,8 @@
 class Customer::ShippingAddressesController < ApplicationController
 
   def index
+    @shipping_addresses = current_customer.shipping_addresses
     @shipping_address = ShippingAddress.new
-    @shipping_address.customer_id == current_customer.id
-    @shipping_addresses = ShippingAddress.all
   end
 
   def create
