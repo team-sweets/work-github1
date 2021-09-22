@@ -19,9 +19,9 @@
           <tr>
             <td class="text-left" ><%= product.id %></td>
             <td class="text-left"><%= link_to product.name, admin_product_path(product) , class: "product_#{product.id}" %></td>
-            <td class = "text-left"><%= product.tax_out_price %></td>
-            <td class = "text-left"><%= product.genre.name%></td>
-            <td class = "text-left">
+            <td class="text-left"><%= product.tax_out_price %></td>
+            <td class="text-left"><%= product.genre.name%></td>
+            <td class="text-left">
             <% if product.sales_status == true %>
                <p>販売中</p>
             <% else product.sales_status == false %>
