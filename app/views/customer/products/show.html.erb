@@ -10,8 +10,9 @@
   <h5>¥ <%= @product.tax_out_price.to_s(:delimited) %>（税込）</h5>
   </div>
 
+  <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+  <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
  </div>
 </div>
-
 
 
