@@ -26,10 +26,17 @@ class Customer::ShippingAddressesController < ApplicationController
   end
 
   def edit
-
+    @shipping_address = ShippingAddress.find(params[:id])
   end
 
   def update
+    @shipping_address = ShippingAddress.find(params[:id])
+    if @shipping_address.update(shipping_address_params)
+      redirect_to shipping_addresses_path
+      flash[:notice] = "編集内容が正しく更新されました。"
+    else
+      render :edit
+    end
   end
 
   private
