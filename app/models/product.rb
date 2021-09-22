@@ -3,6 +3,7 @@ class Product < ApplicationRecord
 
  #enum sales_status: { on_sale: 0, sold_out: 1 }
 
+ validates :image, presence: true
  validates :name, presence: true
 	validates :description, presence: true
 	validates :tax_out_price, presence: true
