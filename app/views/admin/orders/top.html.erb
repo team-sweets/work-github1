@@ -1,2 +1,28 @@
-<h1>Admin::Orders#top</h1>
-<p>Find me in app/views/admin/orders/top.html.erb</p>
+<div class='container'>
+  <h2>注文履歴一覧</h2>
+  <div class='row'>
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="text-left"><%= link_to order.created_at, admin_top_path(order) , class: "oreder_#{order.id}" %></td>
+            <td class="text-left"><%= order.address_name %></td>
+            <td class="text-left" ><%= order.quantity %></td>
+            <td class="text-left" >
+            <%= order.orders_status %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <%= paginate @orders %>
+    </table>
+  </div>
+
