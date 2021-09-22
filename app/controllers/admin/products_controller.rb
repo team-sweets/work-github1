@@ -18,7 +18,7 @@ class Admin::ProductsController < ApplicationController
 
  def show
   @product = Product.find(params[:id])
-  @product_new = Product.new
+  @cart_item = CartItem.new
  end
 
  def edit

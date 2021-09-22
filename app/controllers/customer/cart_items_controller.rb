@@ -11,18 +11,21 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def create
-  　@cart_items = @CartItems
+    cart_item = CartItem.new(params_cart_item)
+    cart_item.customer_id = current_customer.id
+    cart_item.save
+    redirect_to cart_items_path
   end
 
   def destroy
-    cart_item = CartItem.find(params[:id])  
+    cart_item = CartItem.find(params[:id])
     cart_item.destroy
     redirect_to cart_items_path
   end
 
   def destroy_all
   end
-  
+
   def params_cart_item
     params.require(:cart_item).permit(:quantity, :product_id)
   end
