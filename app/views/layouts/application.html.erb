@@ -25,6 +25,7 @@
     <!--管理者がログインしている場合-->
     <% if admin_signed_in? %>
 
+      <div class="row align-items-center">
         <nav-item>
           <%= link_to admin_products_path do %>
             <li class="text-light nav-link">
@@ -64,13 +65,21 @@
             </li>
           <% end %>
         </nav-item>
+      </div>
 
     <!--ユーザーがログインしている場合-->
     <% elsif customer_signed_in? %>
 
+      <div class="row align-items-center">
+        <nav-item>
+            <li>
+              <p class="text-muted mb-0">ようこそ、<%= current_customer.first_name %>さん！</p>
+            </li>
+        </nav-item>
+
         <nav-item>
           <%= link_to customers_path do %>
-            <li class="fas fa-sign-out-alt text-light nav-link">
+            <li class="text-light nav-link">
               <button type="button" class="btn text-dark page-link ">マイページ</button>
             </li>
           <% end %>
@@ -78,7 +87,7 @@
 
         <nav-item>
           <%= link_to products_path do %>
-            <li class="fas fa-sign-out-alt text-light nav-link">
+            <li class="text-light nav-link">
               <button type="button" class="btn text-dark page-link ">商品一覧</button>
             </li>
           <% end %>
@@ -86,7 +95,7 @@
 
         <nav-item>
           <%= link_to cart_items_path do %>
-            <li class="fas fa-sign-out-alt text-light nav-link">
+            <li class="text-light nav-link">
               <button type="button" class="btn text-dark page-link ">カート</button>
             </li>
           <% end %>
@@ -94,15 +103,17 @@
 
         <nav-item>
           <%= link_to destroy_customer_session_path, method: :delete do %>
-            <li class="fas fa-sign-out-alt text-light nav-link">
+            <li class="text-light nav-link">
               <button type="button" class="btn text-dark page-link ">ログアウト</button>
             </li>
           <% end %>
         </nav-item>
+      </div>
 
     <!--いずれもログインしていない場合-->
     <% else %>
 
+      <div class="row align-items-center">
         <nav-item>
           <%= link_to about_path do %>
             <li class="text-light nav-link">
@@ -134,6 +145,7 @@
             </li>
           <% end %>
         </nav-item>
+      </div>
 
     <% end %>
     </ul>

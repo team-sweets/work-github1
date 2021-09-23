@@ -33,14 +33,14 @@ Rails.application.routes.draw do
   post 'orders/log' => 'customer/orders#log'
   post 'orders' => 'customer/orders#create'
   get 'thanx' => 'customer/orders#thanx'
-  get 'orders' =>	'customer/orders#index'
+  get 'orders' =>	'customer/orders#index', as: 'orders_all'
   get 'orders/:id' =>	'customer/orders#show'
 
   get	'shipping_addresses' => 'customer/shipping_addresses#index'
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'
   delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy', as: 'delete_address'
   get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit', as: 'edit_address'
-  put	'shipping_addresses/:id' => 'customer/shipping_addresses#update'
+  patch	'shipping_addresses/:id' => 'customer/shipping_addresses#update', as: 'update_address'
 
   namespace :admin do
 
