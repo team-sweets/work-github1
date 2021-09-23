@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get	'customers/quit' =>	'customer/customers#quit'
   patch 'customers/out' => 'customer/customers#out'
   get	'customers/edit' =>	'customer/customers#edit'
-  put 'customers' => 'customer/customers#update'
+  patch 'customers' => 'customer/customers#update',as: 'customers_update'
 
   root to: 'customer/homes#top'
   get	'about' => 'customer/homes#about'
