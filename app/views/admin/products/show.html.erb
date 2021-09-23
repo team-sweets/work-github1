@@ -1,5 +1,5 @@
-<div class='container'>
-<h2>商品詳細</h2>
+<div class='container px-5 px-sm-0'>
+<h3 style="background-color:#DCDCDC; display: inline; ">商品詳細</h3>
   <div class='row'>
      <tr class="col-md-12">
          <div classs="col-md-4">
@@ -20,9 +20,9 @@
                   <%= @product.add_tax_tax_out_price.to_s(:delimited) %><br>
                   (<%= @product.tax_out_price %>)円<br>
                   <% if @product.sales_status == true %>
-                  <p>販売中</p>
+                  <strong class="text-success">販売中</strong>
                   <% else @product.sales_status == false %>
-                  <p>販売停止中</p>
+                  <strong style="text-secondary">販売停止中</strong>
                   <% end %><br>
                   <%= link_to "編集する", admin_product_edit_path, class: "btn btn-success"%>
            </div>
