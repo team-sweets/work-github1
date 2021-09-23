@@ -1,5 +1,5 @@
 <div class='container'>
-  <h2>注文履歴詳細</h2>
+  <h2 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h2>
   <div class='row'>
     <%= form_with model: @order, url:admin_top_path(@order) local:true do |f| %>
     <tr class="col-md-12">
@@ -35,12 +35,15 @@
           </tr>
         </thead>
         <tbody>
+          <% total_price = 0 %>
           <% @order_details.each do |order_detail| %>
             <tr>
               <td class="text-left" ><%= order_detail.name %></td>
               <td class="text-left"><%= order_detail.purchased_price %></td>
               <td class = "text-left"><%= order_detail.quantity %></td>
-              <td class = "text-left"><%= order_detail. sum_of_purchased_price.to_s(:delimited) %></td>
+              <td class = "text-left"><%= order_detail.sum_of_purchased_price.to_s(:delimited) %>
+              <% total_price += order_detail.sum_of_purchased_price %>
+              </td>
               <td class = "text-left">
                 <%= f.select :production_status, Order_detail, :production_status, class "production_status", include_blank: "-- 選択してください --" %>
               </td>
@@ -48,24 +51,25 @@
                 <%= link_to "更新", admin_top_path(@order), class: "btn btn-success"%>
               </td>
             </tr>
+            <% end %>
         </tbody>
         </table>
         </div>
         <div class="col-md-5">
           <div>
             <p>商品合計</p>
-
+            <%= total_price %>
           </div>
           <div>
             <p>送料</p>
-            <%= order.postage %>
+            <%= @order.postage %>
           </div>
           <div>
             <P>請求金額合計</p>
-            <%= order.total_price %>
+            <% @order.total_price = total_price + @order.postage %>
+            <%= @order.total_price %>
           </div>
         </div>
     </tr>
-    <% end %>
   </div>
 </div>
