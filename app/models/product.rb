@@ -2,7 +2,6 @@ class Product < ApplicationRecord
  attachment :image
 
  #enum sales_status: { on_sale: 0, sold_out: 1 }
-
  validates :image, presence: true
  validates :name, presence: true
 	validates :description, presence: true
@@ -11,7 +10,7 @@ class Product < ApplicationRecord
  validates :sales_status, inclusion: { in: [true, false] }
 
  validates :tax_out_price, numericality: { only_integer: true }
-
+ 
  belongs_to :genre
 
  has_many :cart_items
