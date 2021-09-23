@@ -17,8 +17,8 @@
         <%= @order.shipping_postal_code %> <%= @order.shipping_address %><br>
         <%= @order.address_name %><br>
         <%= @order.payment_method %><br>
-        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" %>
-        <%= @order.orders_status %>
+        <%= f.select :orders_status, Order, :orders_status, class "orders_status", include_blank: "-- 選択してください --" %>
+        <%= link_to "更新", admin_top_path(@order), class: "btn btn-success"%>
       </div>
     </tr>
     <tr class="col-md-12">
@@ -27,20 +27,26 @@
         <thead>
           <tr>
             <th>商品名</th>
-            <th>単価</th>
+            <th>単価（税込）</th>
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
+          <% @order_details.each do |order_detail| %>
             <tr>
-              <td class="text-left" ><%= order.name %></td>
-              <td class="text-right col-xs-1"><%= order.purchased_price %></td>
-              <td class = "text-right col-xs-3"><%= order.quantity %></td>
-              <td class = "text-right col-xs-1"><%= order. %></td>
-              <td class = "text-right col-xs-3"><%= order.production_status %></td>
+              <td class="text-left" ><%= order_detail.name %></td>
+              <td class="text-left"><%= order_detail.purchased_price %></td>
+              <td class = "text-left"><%= order_detail.quantity %></td>
+              <td class = "text-left"><%= order_detail. sum_of_purchased_price.to_s(:delimited) %></td>
+              <td class = "text-left">
+                <%= f.select :production_status, Order_detail, :production_status, class "production_status", include_blank: "-- 選択してください --" %>
+              </td>
+              <td>
+                <%= link_to "更新", admin_top_path(@order), class: "btn btn-success"%>
+              </td>
             </tr>
         </tbody>
         </table>

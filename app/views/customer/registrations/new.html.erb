@@ -48,6 +48,8 @@
       <%= f.text_field :phone_number, autofocus: true, autocomplete: "電話番号（ハイフンなし）" %>
     </div>
 
+      <%= f.hidden_field :is_deleted, :value => false %>
+
     <div class="field">
       <%= f.label :パスワード %>
         <% if @minimum_password_length %>

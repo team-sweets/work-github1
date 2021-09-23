@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>商品編集</h1>
 
-<%= form_with model: @product, url:admin_product_edit_path(@product), method: :patch, local:true do |f| %>
+<%= form_with model: @product, url:admin_product_path(@product), method: :patch, local:true do |f| %>
 
 <div class="form-group">
   <label for="Image">商品画像</label>
@@ -30,10 +30,10 @@
 </div>
   <div class="form-group">
 <%= f.label :"販売ステータス", class: "control-label" %>
-<%= f.radio_button :sales_status, :on_sale %>
-<%= f.label :sales_status_on_sale, '販売中' %>
-<%= f.radio_button :sales_status, :sold_out %>
-<%= f.label :sales_status_sold_out, '販売停止中' %>
+<%= f.radio_button :sales_status, :true %>
+<%= f.label :sales_status, '販売中' %>
+<%= f.radio_button :sales_status, :false %>
+<%= f.label :sales_status, '販売停止中' %>
 <%#= f.select :is_sale, [['販売中', true], ['販売停止', false]], prompt: "-- 選択してください --", class: "col-sm-9 is_sale" %>
 </div>
 
