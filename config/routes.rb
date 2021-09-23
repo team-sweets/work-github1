@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   root to: 'customer/homes#top'
   get	'about' => 'customer/homes#about'
   get 'products' =>	'customer/products#index'
-  get	'products/:id' => 'customer/products#show'
+  get	'products/:id' => 'customer/products#show',as: 'products_show'
 
   get	'cart_items' => 'customer/cart_items#index'
   patch	'cart_items/:id' => 'customer/cart_items#update', as: 'cart_items_update'

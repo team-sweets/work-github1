@@ -4,8 +4,8 @@
 
 
 
-<h4>ショッピングカート     <%= link_to "カートを空にする", cart_items_path , method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger' %></h4>
- 
+<h4>ショッピングカート    <div align="right"> <%= link_to "カートを空にする", cart_items_path , method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger' %></div></h4>
+
     <table border="1"  width="100%" cellpadding="6" cellspacing="0">
         <tr>
             <th width="40%">商品名</th>
@@ -18,26 +18,30 @@
         <% @cart_items.each do |cart_item| %>
         <tr>
            <td><%= attachment_image_tag cart_item.product, :image,size: "50x30" %>  <%= cart_item.product.name %></td>
-           <td><%= cart_item.product.tax_out_price.to_s(:delimited) %></td>
-           <td><%= link_to "変更",  cart_items_path ,class: 'btn btn-success' %></td>
+           <td><%= cart_item.product.add_tax_tax_out_price.to_s(:delimited) %></td>
+           <td><%= form_with model: cart_item, url: cart_items_update_path(cart_item), local: true do |f| %>
+            <%= f.number_field :quantity %> <%= f.submit '変更',class: 'btn btn-success' %></td>
+            <% end %>
            <td></td>
-           <td  align="center"><%#= link_to "削除する", cart_items_path(product) ,method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'},class: 'btn btn-danger' %></td>
+           <td  align="center"><%= link_to "削除する",cart_items_destroy_path(cart_item.id), method: :delete,data: {confirm:  '削除して本当によろしいですか？'},class: 'btn btn-danger' %></td>
         </tr>
         <% end %>
     </table>
-    
-    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+
+    <p></p>
+
+    <%= link_to "買い物を続ける", root_path ,class: 'btn btn-primary' %>
+    <div align="right">
+    <table border="1"  width="30%" cellpadding="6" cellspacing="0">
          <tr>
-        　  <th width="40%"></th>
-            <th width="15%"></th>
-            <th width="15%"></th>
             <th width="15%">合計金額</th>
             <th width="15%"></th>
         </tr>
     </table>
+    </div>
 
-   <p></p><%= link_to "買い物を続ける", root_path ,class: 'btn btn-primary' %></p>
-   <p><%= link_to "情報入力に進む", orders_new_path ,class: 'btn btn-success' %></p>
+
+   <div style="text-align:center"><%= link_to "情報入力に進む", orders_new_path ,class: 'btn btn-success' %></div>
     </div>
    </div>
    </div>
