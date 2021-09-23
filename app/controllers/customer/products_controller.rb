@@ -6,7 +6,7 @@ class Customer::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.page(params[:page]).reverse_order
+    @products = Product.all
   end
 
   def show
