@@ -70,16 +70,21 @@
 }
 
 .introduction {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .link {
   text-decoration: none;
-  color: black ;
+  color: black;
 }
 
 .header {
-  background-color: #EEEEEE	;
+
+  background-color: #EEEEEE;
+}
+
+.nav-link {
+  margin-right: 15px;
 }
 
 .fwrapper{
