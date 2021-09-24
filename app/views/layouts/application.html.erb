@@ -19,7 +19,7 @@
          <div class="navbar-brand">
           <%= link_to root_path do %>
             <%= image_tag "short_cake.png" %>
-            <span class="header-logo text-dark">Nagano CAKES</span>
+            <strong class="header-logo text-dark">Nagano CAKES</strong>
           <% end %>
         </div>
 
@@ -31,41 +31,41 @@
       <div class="row align-items-center">
         <nav-item>
           <%= link_to admin_products_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">商品一覧</button>
-            </li>
+              <i class="fas fa-birthday-cake nav-link text-black">
+                <strong>商品一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to admin_customers_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">会員一覧</button>
-            </li>
+              <i class="fas fa-users nav-link text-black">
+                <strong>会員一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to admin_top_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">注文商品一覧</button>
-            </li>
+              <i class="fas fa-boxes nav-link text-black">
+                <strong>注文商品一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to admin_genres_path do %>
-            <li class="text-light nav-link">
-             <button type="button" class="btn text-dark page-link ">ジャンル一覧</button>
-            </li>
+              <i class="fas fa-tags nav-link text-black">
+                <strong>ジャンル一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to destroy_admin_session_path, method: :delete do %>
-            <li class="text-light nav-link">
-             <button type="button" class="btn text-dark page-link ">ログアウト</button>
-            </li>
+              <i class="fas fa-sign-out-alt nav-link text-black">
+                <strong>ログアウト</strong>
+              </i>
           <% end %>
         </nav-item>
       </div>
@@ -76,39 +76,39 @@
       <div class="row align-items-center">
         <nav-item>
             <li>
-              <p class="text-muted mb-0">ようこそ、<%= current_customer.first_name %>さん！</p>
+              <p class="text-muted mb-0 nav-link">ようこそ、<%= current_customer.first_name %>さん！</p>
             </li>
         </nav-item>
 
         <nav-item>
           <%= link_to customers_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">マイページ</button>
-            </li>
+              <i class="fas fa-home nav-link text-black">
+                <strong>マイページ</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to products_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">商品一覧</button>
-            </li>
+              <i class="fas fa-birthday-cake nav-link text-black">
+                <strong>商品一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to cart_items_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">カート</button>
-            </li>
+              <i class="fas fa-cart-plus nav-link text-black">
+                <strong>カート</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to destroy_customer_session_path, method: :delete do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">ログアウト</button>
-            </li>
+              <i class="fas fa-sign-out-alt nav-link text-black">
+                <strong>ログアウト</strong>
+              </i>
           <% end %>
         </nav-item>
       </div>
@@ -119,33 +119,33 @@
       <div class="row align-items-center">
         <nav-item>
           <%= link_to about_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">About</button>
-            </li>
+              <i class="fas fa-info-circle nav-link text-black">
+                <strong>About</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to products_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">商品一覧</button>
-            </li>
+              <i class="fas fa-birthday-cake nav-link text-black">
+                <strong>商品一覧</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to new_customer_registration_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">新規登録</button>
-            </li>
+              <i class="fas fa-user-plus nav-link text-black">
+                <strong>新規登録</strong>
+              </i>
           <% end %>
         </nav-item>
 
         <nav-item>
           <%= link_to new_customer_session_path do %>
-            <li class="text-light nav-link">
-              <button type="button" class="btn text-dark page-link ">ログイン</button>
-            </li>
+              <i class="fas fa-sign-in-alt nav-link text-black">
+                <strong>ログイン</strong>
+              </i>
           <% end %>
         </nav-item>
       </div>
