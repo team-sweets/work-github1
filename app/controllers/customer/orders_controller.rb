@@ -14,8 +14,12 @@ class Customer::OrdersController < ApplicationController
   end
 
   def index
+    @order_details = OrderDetail.all
+    @orders = Order.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.all
   end
 end
