@@ -1,11 +1,9 @@
 <div class='container'>
-  <h3 style="background-color:#DCDCDC; display: inline;">商品一覧</h3>
+  <h2>商品一覧</h2>
   <div class='row'>
-      <div class="right">
-        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new_product" do %>
+        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new-product" do %>
         <i class="fas fa-plus"></i>
         <% end %>
-      </div>
     <table class="table striped">
       <thead>
         <tr>
@@ -25,17 +23,17 @@
             <td class = "text-left"><%= product.genre.name%></td>
             <td class = "text-left">
             <% if product.sales_status == true %>
-               <strong class="text-success">販売中</strong>
+               <p>販売中</p>
             <% else product.sales_status == false %>
-               <strong style="text-secondary">販売停止中</strong>
+               <p>販売停止中</p>
             <% end %>
             </td>
           </tr>
           <% end %>
       </tbody>
     </table>
-  </div>
+    </div>
     <%= paginate @products %>
-</div>
+  </div>
 
 

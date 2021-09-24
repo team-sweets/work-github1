@@ -17,3 +17,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.background {
+  width: 100%;
+  height: 100%;
+  background-image: url('japan.jpg');
+  background-size: cover;
+  background-position: center;
+}
