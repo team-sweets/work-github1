@@ -43,14 +43,20 @@
 
 					</tbody>
 				</table>
-
-				<div class="mypage-bottoms">
-					<P><strong class="shipping-link">配送先</strong>
-						<%= link_to " 一覧を見る", shipping_addresses_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
-					</p>
-					<p><strong class="order-link">注文履歴</strong>
-						<%= link_to " 一覧を見る", orders_all_path, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
-					</p>
+				
+				<table class='table table-hover table-inverse'>
+				 <thead>
+				     <tr style="border:none;">
+				        <th style="border:none;"><h6><strong class="shipping-link">配送先</strong></h6></th>
+				        <th style="border:none;"><%= link_to " 一覧を見る", shipping_addresses_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></th>
+				     </tr>
+				     <tr style="border:none;">
+				        <th style="border:none;"><h6><strong class="order-link">注文履歴</strong></h6></th>
+				        <th style="border:none;"><%= link_to " 一覧を見る", orders_all_path, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></th>
+				     </tr>
+				 </thead>
+				 </table>
+								
 		</div>
 	</div>
-</div>
+</div>  

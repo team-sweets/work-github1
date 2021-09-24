@@ -1,35 +1,41 @@
-<div class = "container">
+<div class = "customer-product-show">
   <div class = "row">
-  <div class="col-lg-4 col-lg-offset-2">
-  <%= attachment_image_tag @product, :image ,size: "300x200", fallback: "no_image.jpg" %>
+    <div class="col-lg-1"></div>
+  <div class="col-lg-5">
+
+  <%= attachment_image_tag @product, :image ,size: "600x400", fallback: "no_image.jpg" %>
+
   </div>
+  <div class="col-lg-1"></div>
+  <div class="col-lg-5">
 
-  <div class="col-lg-6">
-  <h4><strong><%= @product.name %></strong></h4>
-  <h5><%= @product.description %></h5>
-  <h5>
-    ¥  <%= @product.add_tax_tax_out_price.to_s(:delimited) %>（税込）</h5> 
+  <p></p>
+  <p></p>
+  <h2><strong><%= @product.name %></strong></h2>
+  <p></p>
+  <h4><%= @product.description %></h4>
+  <p></p>
+  <h4>
+    ¥  <%= @product.add_tax_tax_out_price.to_s(:delimited) %>（税込）</h4>
+    <p></p>
      <% if @product.sales_status == true %>
-       <p>販売中</p>
+       <h4>販売中</h4>
      <% else @product.sales_status == false %>
-       <p>販売停止中</p>
+       <h4>販売停止中</h4>
      <% end %>
-   
-
- <h5><font color="red"><%= flash[:alert] %></font></h5>
-     
-   
- 
 
 
+ <h4><font color="red"><%= flash[:alert] %></font></h4>
+
+  <p></p>
   <%= form_with model:@cart_item ,url: cart_items_create_path, local:true do |f| %>
 　 <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
-
   <%= f.submit 'カートに入れる',class: 'btn btn-success' %>
   <%= f.hidden_field :product_id,  :value => @product.id %>
-
   <% end %>
-  </div>
+
+ </div>
+ 
 
 
  </div>
