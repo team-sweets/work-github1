@@ -42,10 +42,6 @@
   background-position: center;
 }
 
-.customer-product-index {
-  background-color: #EEEEEE;
-}
-
 .customer-product-show {
   background-color: #EEEEEE;
 }
@@ -79,7 +75,7 @@
 }
 
 .header {
-  background-color: #EEEEEE;
+  background-color: #DEB887;
 }
 
 .nav-link {
@@ -95,6 +91,19 @@
   width: 100%;
   text-align: center;
   bottom: 0; /*下に固定*/
-  background-color: #EEEEEE	;
+  background-color: #DEB887;
   position: fixed;
+}
+
+.genre-serch {
+  text-align:center;
+  margin-top: 50px;
+}
+
+.form-for-resistration {
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  margin-top: 30px;
 }
