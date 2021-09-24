@@ -3,9 +3,9 @@
 <div class="row">
   <div calss="col-xs-12">
     <%#= render "layouts/error_messages", resource: @customer %>
-    <h2 class="head-line title_h2 text-center">
+    <h5 style="background-color: silver; display: inline;">
       <%= @customer.full_name %>さんの会員情報編集
-    </h2>
+    </h5>
 
   <%= form_with model: @customer, url: admin_customer_update_path(@customer.id), local: true do |f| %>
 
@@ -49,10 +49,10 @@
 
       <div class="form-group col-xs-9">
         <%= f.label :"会員ステータス", class: "col-sm-4 control-label" %>
-        　<%= f.radio_button :is_deleted, true %>
-        　<%= f.label :is_deleted, "退会済", {value: :true, style: "display: inline-block;"} %>
         　<%= f.radio_button :is_deleted, false %>
         　<%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+        　<%= f.radio_button :is_deleted, true %>
+        　<%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
       </div>
     </div>
       <div class="actions  col-xs-9 col-xs-offset-4">

@@ -1,12 +1,11 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(10)
   end
 
   def show
     @customer = Customer.find(params[:id])
-    #@customer = Customer.with_deleted.find
   end
 
   def edit
@@ -15,8 +14,11 @@ class Admin::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to admin_customer_path(@customer)
+    if @customer.update(customer_params)
+     redirect_to admin_customer_path(@customer)
+    else
+     render :edit
+    end
   end
 
   private
