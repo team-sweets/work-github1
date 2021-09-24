@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
 
-      <table class="col-4">
+      <table class="col-2 table table-bordered table-hover text-dark">
         <thead>
           <th>ジャンル検索</th>
         </thead>
@@ -16,35 +16,58 @@
         </tbody>
       </table>
 
+      <div class="col-2"></div>
       <div class="col-8" >
         <tbody>
-          <p>ようこそ、ながのCAKEへ！</p>
-          <p>このサイトは、ケーキ販売のECサイトになります。</p>
-          <p>会員でない方も商品の閲覧はできますが、</p>
-          <p>購入には会員登録が必要になります。</p>
+          <span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </span>
         </tbody>
       </div>
   </div>
 
 
+        <div class ="row">
+          <div class="col-3"></div>
+            <div class="col-9">
+              <h2>新着商品</h2>
+            </div>
+        </div>
+
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-8">
-          <h2>新着商品</h2>
+        <div class="col-3"></div>
           <tbody>
             <% @products.first(4).each do |product| %>
               <tr>
-                <%= link_to products_show_path(product.id) do %>
-
-                    <%= attachment_image_tag product, :image,size: "100x100" %>
-                    <%= product.name %>
-                    <%= product.tax_out_price %>円(税抜)
-
-                <% end %>
+                <div class="col-2">
+                  <%= link_to products_show_path(product.id) do %>
+                      <span>
+                        <%= attachment_image_tag product, :image,size: "150x150" %><br>
+                        <%= product.name %><br>
+                        <%= product.tax_out_price %>円(税抜)<br>
+                      </span>
+                  <% end %>
+                </div>
               </tr>
             <% end %>
           </tbody>
-    			<%= link_to "もっと見る", products_path, class: "btn-link  pull-right" %>
-        </div>
+      </div>
+
+          <div class="row">
+            <div class="col-10"></div>
+              <div class="col-2">
+    			      <%= link_to "もっと見る", products_path %>
+    			    </div>
+    			</div>
+
+
       </div>
 </div>
