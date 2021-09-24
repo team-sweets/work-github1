@@ -70,7 +70,7 @@
 }
 
 .introduction {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .link {
@@ -80,4 +80,21 @@
 
 .header {
   background-color: #EEEEEE;
+}
+
+.nav-link {
+  margin-right: 15px;
+}
+
+.fwrapper{
+    padding-bottom: 100px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  bottom: 0; /*下に固定*/
+  background-color: #EEEEEE	;
+  position: fixed;
 }

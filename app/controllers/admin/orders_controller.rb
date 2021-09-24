@@ -14,11 +14,12 @@ class Admin::OrdersController < ApplicationController
         redirect_to admin_top_path(@order)
     else
         render show
+    end
   end
 
   private
   def order_params
-    params.require(:order).permit(:address_name, :created_at, :shipping_postal_code, :shipping_address, :address_name, :payment_method, :orders_status)
+    params.require(:order).permit( :orders_status)
   end
 
 end
