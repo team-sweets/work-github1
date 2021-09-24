@@ -1,0 +1,75 @@
+<div class='container'>
+  <div class='row'>
+    <h5 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h5>
+
+    <strong>注文情報</strong>
+    <table border="1" width="50%">
+      <tr>
+        <th width="10%">注文日</th>
+        <th width="40%"><%= @order.created_at.strftime('%Y/%m/%d') %></th>
+      </tr>
+      <tr>
+        <td width="10%">配送先</td>
+        <td width="40%"><%= @order.shipping_postal_code %> <%= order.shipping_address %><br>
+                        <%= @order.address_name %>
+        </td>
+      </tr>
+      <tr>
+        <td width="10%">支払方法</td>
+        <td width="40%"><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+        <td width="10%">ステータス</td>
+        <td width="40%"><%= @order.orders_status %></td>
+      </tr>
+    </table>
+
+
+    <strong>注文情報</strong>
+    <table border="1" width="40%">
+      <tr>
+        <th width="20%">商品合計</th>
+        <th width="20%">
+          <% total_price = 0 %>
+          <% @order_details.each do |order_detail| %>
+          <% total_price += order_detail.sum_of_purchased_price %>
+          <% end %>
+          <%= total_price %>
+        </th>
+      </tr>
+      <tr>
+        <td width="20%">配送料</td>
+        <td width="20%"><%= @order.postage %>
+        </td>
+      </tr>
+      <tr>
+        <strong width="20%">ご請求額</strong>
+        <td width="20%"><% @order.total_price = total_price + order.postage %>
+                        <%= @order.total_price %>円
+        </td>
+      </tr>
+    </table>
+
+    <p></p>
+
+    <strong>注文情報</strong>
+    <table border="1" width="60%">
+      <tr>
+        <th width="40%">商品</th>
+        <th width="10%">単価（税込）</th>
+        <th width="5%">個数</th>
+        <th width="5%">小計</th>
+      </tr>
+      <tr>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <td class="text-left" ><%= order_detail.name %></td>
+              <td class="text-left"><%= order_detail.purchased_price %></td>
+              <td class = "text-left"><%= order_detail.quantity %></td>
+              <td class = "text-left"><%= order_detail.sum_of_purchased_price.to_s(:delimited) %></td>
+          <% end %>
+      </tr>
+    </table>
+
+  </div>
+</div>

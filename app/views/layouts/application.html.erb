@@ -7,16 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href=https://fonts.googleapis.com/css?family=Caveat rel="stylesheet" >
+
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <nav class="navbar navbar-expend-lg navbar-light" >
        <div class="container">
 
          <div class="navbar-brand">
           <%= link_to root_path do %>
-            <span class="text-dark">LOGO</span>
+            <%= image_tag "short_cake.png" %>
+            <span class="header-logo text-dark">Nagano CAKES</span>
           <% end %>
         </div>
 
@@ -153,12 +156,10 @@
   </nav>
   <div class="border border-bottom"></div>
  </header>
-<main>
-　　
-      <%= yield %>
-   
-      
-    </main>
+
+  <main class="main">
+    <%= yield %>
+  </main>
 
     <footer>
      <div class="border border-bottom"></div>

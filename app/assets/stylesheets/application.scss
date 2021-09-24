@@ -42,7 +42,6 @@
   background-position: center;
 }
 
-
 .background4 {
   width: 100%;
   height: 100%;
@@ -51,9 +50,33 @@
   background-position: center;
 }
 
-
 .box {
     width: auto;
     height: auto;
     border-radius: 150px;
+
+.header-logo {
+  font-family: 'Amatic SC', cursive;
+}
+
+.introduction-box {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-image: url('ellycollection067_TP_V.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  color: rgb(0, 0, 0,);
+}
+
+.introduction {
+  opacity: 1;
+}
+
+.link {
+  text-decoration: none;
+  color: black ;
+}
+
+.header {
+  background-color: #EEEEEE	;
 }

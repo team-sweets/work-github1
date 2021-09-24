@@ -25,6 +25,8 @@ class Customer < ApplicationRecord
   validates :kana_first_name, :kana_last_name,
     format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "カタカナで入力して下さい。"}
 
+  validates :is_deleted, inclusion: { in: [true, false] }
+
   # 退会機能
   def active_for_authentication?
     super && (self.is_deleted == false)

@@ -4,7 +4,7 @@
 
 
 <h1 style="text-align:center">ショッピングカート</h1>
-<div align="right"> <%= link_to "カートを空にする", cart_items_path , method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger' %></div>
+<div align="right"> <%= link_to "カートを空にする", cart_items_path , method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'}, class: 'btn btn-outline-danger' %></div>
 <p></p>
 
     <h4><font color="green"><%= flash[:notice] %></font></h4>

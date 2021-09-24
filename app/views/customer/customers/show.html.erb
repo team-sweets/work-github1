@@ -4,8 +4,8 @@
 		<div class="col-xs-offset-1 col-xs-8">
 			<h2 class="head-line text-center title_h2">マイページ</h2>
 			<p><strong class="information-link">登録情報</strong>
-				<%= link_to " 編集する", customers_edit_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
-				<%= link_to " パスワードを変更する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-warning" %>
+				<%= link_to " 編集する", customers_edit_path, class: "glyphicon glyphicon-pencil btn btn-outline-success" %>
+				<%= link_to " パスワードを変更する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-outline-danger" %>
 			</p>
 
 				<table class="table table-bordered table-condensed" >
@@ -46,10 +46,10 @@
 
 				<div class="mypage-bottoms">
 					<P><strong class="shipping-link">配送先</strong>
-						<%= link_to " 一覧を見る", shipping_addresses_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+						<%= link_to " 一覧を見る", shipping_addresses_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
 					</p>
 					<p><strong class="order-link">注文履歴</strong>
-						<%= link_to " 一覧を見る", orders_all_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+						<%= link_to " 一覧を見る", orders_all_path, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
 					</p>
 		</div>
 	</div>
