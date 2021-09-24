@@ -10,26 +10,23 @@
         <tbody>
           <% @genres.first(5).each do |genre| %>
             <tr>
-              <td><p><%= link_to genre.name %></p></td>
+              <!--↓ジャンル名での検索機能は実装してないので商品一覧に遷移します。-->
+              <td><p><%= link_to genre.name, products_path, class:"link" %></p></td>
             </tr>
           <% end %>
         </tbody>
       </table>
 
-      <div class="col-2"></div>
-      <div class="col-8" >
+      <div class="col-1"></div>
+
+      <div class="col-9 introduction-box align-items-center d-flex justify-content-center" >
         <tbody>
-          <span>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+          <strong>
             ようこそ、ながのCAKEへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
             会員でない方も商品の閲覧はできますが、<br>
             購入には会員登録が必要になります。
-          </span>
+          </strong>
         </tbody>
       </div>
   </div>
@@ -48,7 +45,7 @@
             <% @products.first(4).each do |product| %>
               <tr>
                 <div class="col-2">
-                  <%= link_to products_show_path(product.id) do %>
+                  <%= link_to products_show_path(product.id), class:"link" do %>
                       <span>
                         <%= attachment_image_tag product, :image,size: "150x150" %><br>
                         <%= product.name %><br>
@@ -64,7 +61,7 @@
           <div class="row">
             <div class="col-10"></div>
               <div class="col-2">
-    			      <%= link_to "もっと見る", products_path %>
+    			      <%= link_to "もっと見る", products_path, class:"link" %>
     			    </div>
     			</div>
 
