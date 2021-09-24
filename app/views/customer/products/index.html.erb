@@ -1,8 +1,9 @@
-<div class = "background">
+<div class = "background4">
 
-<div class="row mt-5">
+<div class="row mt-5"> <%# 消す予定%>
+  
   <div class="col-md-10 mx-auto">
-        <link rel="stylesheet" href="style.css" />
+       
 
 
 <h4><strong>商品一覧</strong><span>（全<%= @products.total_count %>件中<%= @products.count %>件）</span></h4>
@@ -14,7 +15,12 @@
 <div class="col-md-3">
   
   <%= link_to products_show_path(product.id) do %>
+  
+
+<div class="box">
     <%= attachment_image_tag product, :image ,size: "210x140", fallback: "no_image.jpg" %>
+</div>
+
   <% end %>
 
   <p><strong>商品名</strong> <%= product.name %></p>
