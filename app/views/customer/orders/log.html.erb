@@ -27,34 +27,36 @@
     </table>
 
     <p></p>
-    
+
     <table border="1"  width="40%" cellpadding="6" cellspacing="0">
       <tr>
        <th width="50%">送料</th>
        <td width="50%">800</td>
       </tr>
-      
+
       <tr>
        <th width="50%">商品合計</th>
        <td width="50%"><%= @count.to_s(:delimited) %></td>
       </tr>
-      
+
       <tr>
        <th width="50%">請求金額</th>
        <td width="50%">
-       
+
         <% @count += 800 %>
         <%= @count.to_s(:delimited) %>
- 
+
       </tr>
-      
+
     </table>
-    
+
 <p></p>
 
 
 <h6><strong>支払方法</strong></h6>
+<%= @order.payment_method %>
 <h6><strong>お届け先</h6>
+<%#= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
 
 <div style="text-align:center"><%= link_to "注文を確定する", thanx_path ,class: "btn btn-success" %> </div>
 </div>
