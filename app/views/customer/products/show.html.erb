@@ -7,14 +7,19 @@
   <div class="col-lg-6">
   <h4><strong><%= @product.name %></strong></h4>
   <h5><%= @product.description %></h5>
-  <h5>¥  <%= @product.add_tax_tax_out_price.to_s(:delimited) %>（税込）</h5>
+  <h5>
+    ¥  <%= @product.add_tax_tax_out_price.to_s(:delimited) %>（税込）</h5> 
+     <% if @product.sales_status == true %>
+       <p>販売中</p>
+     <% else @product.sales_status == false %>
+       <p>販売停止中</p>
+     <% end %>
+   
 
-  <% if @cart_item.errors.any? %>
-  <%= @cart_item.count %>件のエラーが発生しました
-  <% @cart_item.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-  <% end %>
+ <h5><font color="red"><%= flash[:alert] %></font></h5>
+     
+   
+ 
 
 
   <%= form_with model:@cart_item ,url: cart_items_create_path, local:true do |f| %>
@@ -22,6 +27,7 @@
 
   <%= f.submit 'カートに入れる',class: 'btn btn-success' %>
   <%= f.hidden_field :product_id,  :value => @product.id %>
+
   <% end %>
   </div>
 

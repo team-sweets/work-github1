@@ -3,6 +3,8 @@ class Customer::OrdersController < ApplicationController
   end
 
   def log
+    @cart_items = CartItem.all
+    @count = 0
   end
 
   def create

@@ -1,2 +1,62 @@
-<h1>Customer::Orders#log</h1>
-<p>Find me in app/views/customer/orders/log.html.erb</p>
+ <div class="row">
+    <div class="col-lg-2" ></div>
+    <div class="col-lg-8">
+
+    <h5>注文情報確認</h5>
+
+
+    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+        <tr>
+            <th width="50%">商品名</th>
+            <th width="20%">単価（税込）</th>
+            <th width="10%">数量</th>
+            <th width="20%">小計</th>
+        </tr>
+
+
+        <tr>
+           <% @cart_items.each do |cart_item| %>
+           <td><%= attachment_image_tag cart_item.product, :image,size: "50x30" %>  <%= cart_item.product.name %></td>
+           <td><%= cart_item.product.add_tax_tax_out_price.to_s(:delimited) %></td>
+           <td><%= cart_item.quantity %>
+           </td>
+           <td><%= (cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity).to_s(:delimited) %></td>
+           <% @count += cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity  %>
+        </tr>
+        <% end %>
+    </table>
+
+    <p></p>
+    
+    <table border="1"  width="40%" cellpadding="6" cellspacing="0">
+      <tr>
+       <th width="50%">送料</th>
+       <td width="50%">800</td>
+      </tr>
+      
+      <tr>
+       <th width="50%">商品合計</th>
+       <td width="50%"><%= @count.to_s(:delimited) %></td>
+      </tr>
+      
+      <tr>
+       <th width="50%">請求金額</th>
+       <td width="50%">
+       
+        <% @count += 800 %>
+        <%= @count.to_s(:delimited) %>
+ 
+      </tr>
+      
+    </table>
+    
+<p></p>
+
+
+<h6><strong>支払方法</strong></h6>
+<h6><strong>お届け先</h6>
+
+<div style="text-align:center"><%= link_to "注文を確定する", thanx_path ,class: "btn btn-success" %> </div>
+</div>
+</div>
+

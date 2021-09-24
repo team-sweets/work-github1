@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   delete 'cart_items' => 'customer/cart_items#destroy_all', as: 'cart_items_destroy_all'
 
   get 'orders/new' => 'customer/orders#new'
-  post 'orders/log' => 'customer/orders#log'
+  get 'orders/log' => 'customer/orders#log'
   post 'orders' => 'customer/orders#create'
   get 'thanx' => 'customer/orders#thanx'
   get 'orders' =>	'customer/orders#index', as: 'orders_all'
