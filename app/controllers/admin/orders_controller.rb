@@ -10,8 +10,10 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to admin_top_path(@order)
+    if  @order.update(order_params)
+        redirect_to admin_top_path(@order)
+    else
+        render show
   end
 
   private

@@ -4,11 +4,13 @@
   }
 </style>
 <div class='container'>
-  <h2>商品一覧</h2>
+  <h3 style="background-color:#DCDCDC; display: inline;">商品一覧</h3>
   <div class='row'>
-        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new-product" do %>
+      <div class="right">
+        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new_product" do %>
         <i class="fas fa-plus"></i>
         <% end %>
+      </div>
     <table class="table striped">
       <thead>
         <tr>
@@ -28,17 +30,17 @@
             <td class = "text-left"><%= product.genre.name%></td>
             <td class = "text-left">
             <% if product.sales_status == true %>
-               <p>販売中</p>
+               <strong class="text-success">販売中</strong>
             <% else product.sales_status == false %>
-               <p>販売停止中</p>
+               <strong style="text-secondary">販売停止中</strong>
             <% end %>
             </td>
           </tr>
           <% end %>
       </tbody>
     </table>
-    </div>
-    <%= paginate @products %>
   </div>
+    <%= paginate @products %>
+</div>
 
 

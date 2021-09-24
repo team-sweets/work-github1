@@ -27,29 +27,29 @@
     </table>
 
     <p></p>
-    
+
     <table border="1"  width="40%" cellpadding="6" cellspacing="0">
       <tr>
        <th width="50%">送料</th>
        <td width="50%">800</td>
       </tr>
-      
+
       <tr>
        <th width="50%">商品合計</th>
        <td width="50%"><%= @count.to_s(:delimited) %></td>
       </tr>
-      
+
       <tr>
        <th width="50%">請求金額</th>
        <td width="50%">
-       
+
         <% @count += 800 %>
         <%= @count.to_s(:delimited) %>
- 
+
       </tr>
-      
+
     </table>
-    
+
 <p></p>
 
 
