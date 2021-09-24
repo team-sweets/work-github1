@@ -12,7 +12,7 @@
         注文ステータス
       </div>
       <div class="col-md-9">
-        <%= @order.address_name %><br>
+        <%= link_to @order.address_name, admin_customer_path(@order) , class: "oreder_#{@order.id}" %><br>
         <%= @order.created_at %><br>
         <%= @order.shipping_postal_code %> <%= @order.shipping_address %><br>
         <%= @order.address_name %><br>
