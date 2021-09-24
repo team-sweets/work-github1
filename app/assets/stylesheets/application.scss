@@ -66,7 +66,7 @@
 }
 
 .introduction {
-  opacity: 0.5;
+  background: linear-gradient(transparent 0%, #FFFFFF 0%);
 }
 
 .link {
@@ -97,7 +97,7 @@
 
 .genre-serch {
   text-align:center;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .form-for-resistration {
@@ -106,4 +106,8 @@
 
 .subtitle {
   margin-top: 30px;
+}
+
+.genre-item {
+  margin: 10px;
 }

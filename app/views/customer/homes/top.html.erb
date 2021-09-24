@@ -11,7 +11,7 @@
           <% @genres.first(5).each do |genre| %>
             <tr>
               <!--↓ジャンル名での検索機能は実装してないので商品一覧に遷移します。-->
-              <td><p><%= link_to genre.name, products_path, class:"link" %></p></td>
+              <td><p class="genre-item"><%= link_to genre.name, products_path, class:"link" %></p></td>
             </tr>
           <% end %>
         </tbody>
@@ -22,10 +22,10 @@
       <div class="col-9 introduction-box align-items-center d-flex justify-content-center" >
         <tbody>
           <h4>
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
+            <span class="introduction">ようこそ、<strong>ながのCAKE</strong>へ！</span><br>
+            <span class="introduction">このサイトは、ケーキ販売のECサイトになります</span><br>
+            <span class="introduction">会員でない方も商品の閲覧はできますが、</span><br>
+            <span class="introduction">購入には会員登録が必要になります</span>
           </h4>
         </tbody>
       </div>
