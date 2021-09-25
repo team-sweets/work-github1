@@ -161,13 +161,13 @@
    </div>
   </nav>
   <div class="border border-bottom"></div>
-  <form class="d-flex justify-content-end">
+  <div class="d-flex justify-content-end">
    <% if admin_signed_in? %>
     <%= render 'admin/searches/form' %>
    <% else %>
     <%= render 'customer/searches/form' %>
    <% end %>
-   </form>
+   </div>
   </header>
   <main class="main">
     <%= yield %>
