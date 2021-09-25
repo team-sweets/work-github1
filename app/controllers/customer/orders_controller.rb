@@ -5,8 +5,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def log
-
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @count = 0
 
     @order = Order.new(customer: current_customer,
@@ -34,14 +33,19 @@ class Customer::OrdersController < ApplicationController
 
   def create
     @order = current_customer.orders.new(order_params)
-    @order.save
-    #adress = ShippingAddress.new(shipping_parameter)
-
-    flash[:notice] = "ご注文が確定しました。"
-    redirect_to thanx_customers_orders_path
-
-    if params[:order][:ship] == "1"
-      current_customer.shipping_address.create(address_params)
+    @order.postage = 800
+    @cart_items = current_customer.cart_items
+    if @order.save
+       @cart_items.each do |cart_item|
+       @order_detail = OrderDetail.new
+       @order_detail.product_id = cart_item.product.id
+       @order_detail.order_id = @order.id
+       @order_detail.quantity = cart_item.quantity
+       @order_detail.purchased_price = cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity
+       @order_detail.save
+     end
+      @cart_items.destroy_all
+      redirect_to thanx_path
     end
   end
 
@@ -61,7 +65,7 @@ class Customer::OrdersController < ApplicationController
  private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_price)
+    params.require(:order).permit( :address_name, :shipping_address, :shipping_postal_code, :payment_method, :total_price)
   end
 
   def address_params
