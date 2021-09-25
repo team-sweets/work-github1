@@ -21,7 +21,7 @@ class Customer::CartItemsController < ApplicationController
     cart_item = CartItem.new(params_cart_item)
     cart_item.customer_id = current_customer.id
    if cart_item.save
-    flash[:notice] = "#{cart_item.product.name}をカートに#{cart_item.quantity}個追加しました!"
+    flash[:success] = "#{cart_item.product.name}をカートに#{cart_item.quantity}個追加しました!"
     redirect_to cart_items_path
    else
       @product = Product.find(params[:cart_item][:product_id])

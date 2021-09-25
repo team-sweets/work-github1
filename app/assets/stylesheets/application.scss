@@ -18,25 +18,9 @@
 @import 'font-awesome';
 
 
-.background {
-  width: 100%;
-  height: 100%;
-  background-image: url('japan.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.background2 {
-  width: 1200px;
-  height: 500px;
-  background-image: url('midori.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
 .background3 {
   width: 100%;
-  height: 550px;
+  height: 600px;
   background-image: url('cake1.jpg');
   background-size: cover;
   background-position: center;
@@ -46,9 +30,7 @@
   background-color: #EEEEEE;
 }
 
-.customer-product-show {
-  background-color: #EEEEEE;
-}
+
 
 .box {
     width: auto;
@@ -70,7 +52,7 @@
 }
 
 .introduction {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .link {
@@ -82,19 +64,33 @@
   background-color: #EEEEEE;
 }
 
-.nav-link {
-  margin-right: 15px;
+.shortcut {
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
 }
 
+//footer//
 .fwrapper{
-    padding-bottom: 100px;/*←footerの高さ*/
+    padding-bottom: 200px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
 .footer {
   width: 100%;
-  text-align: center;
   bottom: 0; /*下に固定*/
   background-color: #EEEEEE	;
   position: fixed;
+  height: 100px;
+  text-align: center;
 }
+
+.social {
+  position: absolute;
+  bottom: 17px;
+  right: 150px;
+}
+
