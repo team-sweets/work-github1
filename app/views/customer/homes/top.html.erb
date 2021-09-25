@@ -30,32 +30,11 @@
         </tbody>
       </div>
   </div>
-  
-     <p></p>
-        <div class ="row">
-          <div class="col-3"></div>
-            <div class="col-9">
-              <h2>新着商品</h2>
-            </div>
-        </div>
 
-      <div class="row">
-        <div class="col-3"></div>
-          <tbody>
-            <% @products.first(4).each do |product| %>
-              <tr>
-                <div class="col-2">
-                  <%= link_to products_show_path(product.id), class:"link" do %>
-                      <span>
-                        <%= attachment_image_tag product, :image,size: "150x150" %><br>
-                        <%= product.name %><br>
-                        <%= product.tax_out_price %>円(税抜)<br>
-                      </span>
-                  <% end %>
-                </div>
-              </tr>
-            <% end %>
-          </tbody>
+  <div class ="row">
+    <div class="col-3"></div>
+      <div class="col-9 subtitle">
+        <h2>新着商品</h2>
       </div>
   </div>
 
@@ -69,7 +48,7 @@
                   <span>
                     <%= attachment_image_tag product, :image,size: "150x150", class: "rounded" %><br>
                     <%= product.name %><br>
-                    <%= product.tax_out_price %>円(税抜)<br>
+                    ¥<%= product.tax_out_price %>(税抜)<br>
                   </span>
               <% end %>
             </div>
@@ -80,7 +59,7 @@
 
   <div class="row">
     <div class="col-10"></div>
-      <div class="col-2">
+      <div class="col-2 subtitle">
 	      <%= link_to "もっと見る", products_path, class:"link" %>
 	    </div>
 	</div>
