@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row subtitle">
     <h2 class="col-12">会員情報編集</h2>
   </div>
 
@@ -8,7 +8,7 @@
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-            <%= f.label :"氏名", class: "col-2" %>
+            <%= f.label :"氏名", class: "col-3" %>
             <%= f.text_field :first_name, placeholder: "姓", autofocus: true, class: "first_name col-2" %>
             <%= f.text_field :last_name, placeholder: "名", autofocus: true, class: "last_name col-2" %>
         </div>
@@ -16,7 +16,7 @@
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-          <%= f.label :"フリガナ", class: "col-sm-2 control-label" %>
+          <%= f.label :"フリガナ", class: "col-sm-3" %>
           <%= f.text_field :kana_first_name, placeholder: "セイ", autofocus: true, class: "kana_first_name col-sm-2" %>
           <%= f.text_field :kana_last_name, placeholder: "メイ", autofocus: true, class: "kana_last_name col-sm-2" %>
         </div>
@@ -24,38 +24,37 @@
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-            <%= f.label :"郵便番号", class: "col-2" %>
+            <%= f.label :"郵便番号", class: "col-3" %>
             <%= f.text_field :postal_code, placeholder: "郵便番号", autofocus: true, class: "col-2" %>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-            <%= f.label :"住所", class: "col-2" %>
-            <%= f.text_field :address, placeholder: "住所", autofocus: true, class: "col-2" %>
+            <%= f.label :"住所", class: "col-3" %>
+            <%= f.text_field :address, placeholder: "住所", autofocus: true, class: "col-4" %>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-            <%= f.label :"電話番号(ハイフンなし)", class: "col-2" %>
+            <%= f.label :"電話番号(ハイフンなし)", class: "col-3" %>
             <%= f.text_field :phone_number, placeholder: "電話番号", autofocus: true, class: "col-2" %>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="form-group col-12">
-            <%= f.label :"メールアドレス", class: "col-2" %>
+            <%= f.label :"メールアドレス", class: "col-3" %>
             <%= f.text_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: "col-2" %>
         </div>
       </div>
 
 
         <div class="row">
-          <div class="col-12">
-            <%= f.submit "編集内容を保存する", class: "btn btn-outline-primary save col-2" %>
-            <%= link_to "退会する", customers_quit_path, class: "glyphicon glyphicon-tint btn btn-outline-danger col-2" %>
-          </div>
+            <div class="col-3"></div>
+            <%= f.submit "編集内容を保存する", class: "btn btn-outline-primary nav-link save col-2" %>
+            <%= link_to "退会する", customers_quit_path, class: "btn btn-outline-danger nav-link col-2" %>
         </div>
 
       <% end %>

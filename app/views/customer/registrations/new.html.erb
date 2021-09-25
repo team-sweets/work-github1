@@ -25,11 +25,11 @@
         <div class="col-3">
           <%= f.label :フリガナ %>
         </div>
-  
+
         <div class="col-3">
           <%= f.text_field :kana_first_name, placeholder: "セイ", autofocus: true, autocomplete: "セイ" %>
         </div>
-  
+
         <div class="col-3">
           <%= f.text_field :kana_last_name, placeholder: "メイ", autofocus: true, autocomplete: "メイ" %>
         </div>
@@ -40,7 +40,7 @@
         <div class="col-3">
           <%= f.label :email,"メールアドレス" %>
         </div>
-  
+
         <div class="col-3">
           <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %>
         </div>
@@ -51,7 +51,7 @@
         <div class="col-3">
           <%= f.label :postal_code,"郵便番号(ハイフンなし)" %><br />
         </div>
-  
+
         <div class="col-3">
           <%= f.text_field :postal_code, placeholder: "郵便番号", autofocus: true, autocomplete: "郵便番号(ハイフンなし)" %>
         </div>
@@ -62,9 +62,9 @@
         <div class="col-3">
           <%= f.label :address,"住所" %>
         </div>
-  
-        <div class="col-3">
-          <%= f.text_field :address, placeholder: "住所", autofocus: true, autocomplete: "住所" %>
+
+        <div class="col-6">
+          <%= f.text_field :address, placeholder: "住所", autofocus: true, autocomplete: "住所", size: "56x20" %>
         </div>
     </div>
 
@@ -73,7 +73,7 @@
         <div class="col-3">
           <%= f.label :phone_number,"電話番号(ハイフンなし)" %>
         </div>
-  
+
         <div class="col-3">
           <%= f.text_field :phone_number, placeholder: "電話番号", autofocus: true, autocomplete: "電話番号(ハイフンなし)" %>
         </div>

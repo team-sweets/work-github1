@@ -10,7 +10,7 @@ class Customer::ShippingAddressesController < ApplicationController
     @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
       redirect_to shipping_addresses_path
-      flash[:notice] = "新たに住所が追加されました。"
+      flash[:notice_shipping_address] = "新しく住所が追加されました"
     else
       @shipping_addresses = ShippingAddress.all
       render :index
@@ -22,7 +22,7 @@ class Customer::ShippingAddressesController < ApplicationController
     @shipping_address.destroy
     @shipping_addresses = ShippingAddress.all
     redirect_to shipping_addresses_path
-    flash[:notice] = "住所が1件削除されました"
+    flash[:notice_shipping_address] = "選択した住所が1件削除されました"
   end
 
   def edit
@@ -33,7 +33,7 @@ class Customer::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.find(params[:id])
     if @shipping_address.update(shipping_address_params)
       redirect_to shipping_addresses_path
-      flash[:notice] = "編集内容が正しく更新されました。"
+      flash[:notice_shipping_address] = "編集内容が正しく更新されました"
     else
       render :edit
     end

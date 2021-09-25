@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   # ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
       if current_customer
-        flash[:notice] = "ログインに成功しました"
+        flash[:notice_log_in] = "ログインに成功しました"
         products_path
       else
-        flash[:notice] = "ログインに成功しました"
+        flash[:notice_log_in] = "ログインに成功しました"
         admin_products_path
       end
     end
