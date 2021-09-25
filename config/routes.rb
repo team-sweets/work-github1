@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   delete 'cart_items' => 'customer/cart_items#destroy_all', as: 'cart_items_destroy_all'
 
   get 'orders/new' => 'customer/orders#new'
-  get 'orders/log' => 'customer/orders#log'
+  post 'orders/new' => 'customer/orders#new'
+  post 'orders/log' => 'customer/orders#log'
   post 'orders' => 'customer/orders#create'
   get 'thanx' => 'customer/orders#thanx'
   get 'orders' =>	'customer/orders#index', as: 'orders_all'
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
   delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy', as: 'delete_address'
   get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit', as: 'edit_address'
   patch	'shipping_addresses/:id' => 'customer/shipping_addresses#update', as: 'update_address'
+
+  get 'searches' => 'customer/searches#search'
 
   namespace :admin do
 
@@ -67,6 +70,7 @@ Rails.application.routes.draw do
 
     patch	'order_details/:id' => 'order_details#update'
 
+    get 'searches' => 'searches#search'
  end
 
 end

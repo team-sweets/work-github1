@@ -7,7 +7,7 @@
 <div align="right"> <%= link_to "カートを空にする", cart_items_path , method: :delete,data: {confirm:  'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger' %></div>
 <p></p>
 
-    <h4><font color="green"><%= flash[:notice] %></font></h4>
+    <h4><font color="green"><%= flash[:success] %></font></h4>
     <h4><font color="green"><%= flash[:update] %></font></h4>
     <h4><font color="red"><%= flash[:destroy] %></font></h4>
     <h4><font color="red"><%= flash[:destroy_all] %></font></h4>
@@ -28,8 +28,8 @@
            <td><%= cart_item.product.add_tax_tax_out_price.to_s(:delimited) %></td>
            <td><%= form_with model: cart_item, url: cart_items_update_path(cart_item), local: true do |f| %>
            <%= f.number_field :quantity, class: "quantity", size: 10, min: 1, id: "quantity_cart" %>
-           <a><%= f.submit '変更',class: 'btn btn-outline-success' %></a></td>
-            <% end %>
+           　<%= f.submit '変更',class: 'btn btn-outline-success' %>
+            <% end %></td>
            <td><%= (cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity).to_s(:delimited) %></td>
            <% @count += cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity  %>
            <td  align="center"><%= link_to "削除する",cart_items_destroy_path(cart_item.id), method: :delete,data: {confirm:  '削除して本当によろしいですか？'},class: 'btn btn-outline-danger' %></td>

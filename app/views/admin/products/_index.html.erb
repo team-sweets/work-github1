@@ -1,25 +1,4 @@
-<div class='container'>
-
-  <p></p>
-
-　<% if flash[:success] %>
-	<div class="flash">
-  <%= flash[:success] %>
-  </div>
-	 <% end %>
-
-  <h3 style="background-color:#DCDCDC; display: inline;">商品一覧</h3>
-  <p></p>
-  <div class='row'>
-      <div class="right">
-        <%=link_to admin_products_new_path, class: "btn btn-outline-secondary new_product" do %>
-        <i class="fas fa-plus"></i>
-        <% end %>
-      </div>
-
-  <p></p>
-
-    <table class="table striped">
+   <table class="table striped">
       <thead>
         <tr>
           <th>商品ID</th>
@@ -30,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @products.each do |product| %>
+        <% products.each do |product| %>
           <tr>
             <td class="text-left" ><%= product.id %></td>
             <td class="text-left"><%= link_to product.name, admin_product_path(product) , class: "product_#{product.id}" %></td>
@@ -40,15 +19,10 @@
             <% if product.sales_status == true %>
                <p class="text-success">販売中</p>
             <% else product.sales_status == false %>
-               <p class="text-danger">販売停止中</p>
+               <p style="text-secondary">販売停止中</p>
             <% end %>
             </td>
           </tr>
           <% end %>
       </tbody>
     </table>
-  </div>
-    <%= paginate @products %>
-</div>
-
-

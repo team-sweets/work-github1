@@ -16,7 +16,17 @@
     <p><strong>商品名</strong> <%= product.name %></p>
   <% end %>
 
-  <p>¥<%= product.tax_out_price.to_s(:delimited) %></p>
+  <div class="shortcut">商品名 : <%= product.name %></div>
+  
+  
+  <p>
+  <% if product.sales_status == true %>
+       <p><font color = "green">販売中</font> ¥<%= product.tax_out_price.to_s(:delimited) %></p>
+  <% else product.sales_status == false %>
+       <p><font color = "red">販売停止中</font> ¥<%= product.tax_out_price.to_s(:delimited) %></p>
+  <% end %>
+  </p>
+  
   </div>
 <% end %>
 </div>

@@ -161,18 +161,29 @@
    </div>
   </nav>
   <div class="border border-bottom"></div>
-<div class="d-flex justify-content-center">
-      <%#= render 'customer/searches/form' %>
- </header>
-
+  <form class="d-flex justify-content-end">
+   <% if admin_signed_in? %>
+    <%= render 'admin/searches/form' %>
+   <% else %>
+    <%= render 'customer/searches/form' %>
+   <% end %>
+   </form>
+  </header>
   <main class="main">
     <%= yield %>
   </main>
 
 
    <div class="fwrapper">
-    <footer class="footer">
-        <p>aaaaaaa</p>
+    <footer class="footer text-black">
+      　<p>© All rights reserved by Team-sweets</p>
+        <p class="social">
+          ご質問はこちら<br>
+          <i class="fab fa-facebook-square fa-2x text-black"></i>
+          <i class="fab fa-twitter-square fa-2x text-black"></i>
+          <i class="fab fa-instagram fa-2x text-black"></i>
+          <i class="fas fa-envelope fa-2x text-black"></i>
+        </p>
     </footer>
    </div>
   </body>

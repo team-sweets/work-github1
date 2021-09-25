@@ -1,4 +1,6 @@
  <div class='container'>
+
+  <% if @order.present? %>
   <div class='row'>
     <h5 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h5>
 
@@ -34,4 +36,8 @@
     </table>
 
   </div>
+
+  <% else %>
+    <p>注文履歴がありません。</p>
+  <% end %>
 </div>
