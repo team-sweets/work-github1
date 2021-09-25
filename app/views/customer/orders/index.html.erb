@@ -1,6 +1,5 @@
  <div class='container'>
 
-  <% if @order.present? %>
   <div class='row'>
     <h5 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h5>
 
@@ -14,30 +13,25 @@
             <th width="10%">注文詳細</th>
         </tr>
 
-        <tr>
-            <% total_price = 0 %>
-            <% @order_details.each do |order_detail| %>
-            <% total_price += order_detail.sum_of_purchased_price %>
-            <% end %>
 
-            <% @orders.each do |order| %>
-            <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= order.shipping_postal_code %> <%= order.shipping_address %><br>
-            <%= order.address_name %></td>
-            <td><%= order.name %></td>
+        <% @orders.each do |order| %>
+      　　<tr>
+        　　<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        　　<td><%= order.address_name %></td>
             <td>
-              <% order.total_price = total_price + order.postage %>
-              <%= order.total_price %>円
-            </td>
-            <td><%= order.orders_status %></td>
-            <td><%= link_to "表示する", orders_all_path(order), class: "btn btn-success"%></td>
+            <% @order_details.each do |order_detail| %>
+             <p><%= order_detail.product.name %></p>
             <% end %>
-        </tr>
+            </td>
+            <td><%= order.total_price %></td>
+            <td><%= order.orders_status %></td>
+            <td></td>
+          </tr>
+        <% end %>
+
     </table>
 
   </div>
 
-  <% else %>
-    <p>注文履歴がありません。</p>
-  <% end %>
+
 </div>
