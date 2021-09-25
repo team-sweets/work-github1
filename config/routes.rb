@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
 
+  get 'searches' => 'customer/searches#search'
+
   get	'customers' => 'customer/customers#show'
   get	'customers/quit' =>	'customer/customers#quit'
   patch 'customers/out' => 'customer/customers#out'
@@ -42,8 +44,6 @@ Rails.application.routes.draw do
   delete 'shipping_addresses/:id' =>	'customer/shipping_addresses#destroy', as: 'delete_address'
   get	'shipping_addresses/:id/edit' =>	'customer/shipping_addresses#edit', as: 'edit_address'
   patch	'shipping_addresses/:id' => 'customer/shipping_addresses#update', as: 'update_address'
-
-  get 'searches' => 'customer/searches#search'
 
   namespace :admin do
 
