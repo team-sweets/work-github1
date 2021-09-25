@@ -5,40 +5,41 @@ class Customer::OrdersController < ApplicationController
   end
 
   def log
+
     @cart_items = CartItem.all
     @count = 0
-    @order = Order.new(customer: current_customer,payment_method: params[:order][:payment_method])
 
- # addressにresidenceの値がはいっていれば
+    @order = Order.new(customer: current_customer,
+      payment_method: params[:order][:payment_method].to_i
+    )
+
     if params[:order][:addresses] == "residence"
-      @order.postal_code = current_customer.postal_code
-      @order.address     = current_customer.residence
-      @order.name        = current_customer.last_name +
-                           current_customer.first_name
+      @order.postage = current_customer.postal_code
+      @order.shipping_address     = current_customer.address
+      @order.address_name        = current_customer.first_name +
+                           current_customer.last_name
 
-    # addressにshipping_addressesの値がはいっていれば
     elsif params[:order][:addresses] == "shipping_addresses"
-      ship = ShippingAddress.find(params[:order][:shipping_address_id])
-      @order.postal_code = ship.postal_code
-      @order.address     = ship.address
-      @order.name        = ship.name
+      ship = ShippingAddress.find(params[:shipping_address_id])
+      @order.postage = ship.postal_code
+      @order.shipping_address     = ship.address
+      @order.address_name        = ship.name
 
-    # addressにnew_addressの値がはいっていれば
     elsif params[:order][:addresses] == "new_address"
-      @order.postal_code = params[:order][:postal_code]
-      @order.address     = params[:order][:address]
-      @order.name        = params[:order][:name]
-      @ship = "1"
+      @order.postage = params[:order][:postal_code]
+      @order.shipping_address     = params[:order][:address]
+      @order.address_name        = params[:order][:name]
     end
   end
 
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
+    #adress = ShippingAddress.new(shipping_parameter)
+
     flash[:notice] = "ご注文が確定しました。"
     redirect_to thanx_customers_orders_path
 
-    # もし情報入力でnew_addressの場合ShippingAddressに保存
     if params[:order][:ship] == "1"
       current_customer.shipping_address.create(address_params)
     end

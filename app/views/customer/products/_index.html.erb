@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>価格</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="product">
+    <% products.each do |product| %>
+      <tr>
+        <td><%= link_to products_show_path(product.id) do %>
+         <%= attachment_image_tag product, :image ,size: "210x140", fallback: "no_image.jpg" %>
+        <% end %>
+        </td>
+        <td><%= product.name %></td>
+        <td>¥<%= product.tax_out_price.to_s(:delimited) %></td>
+        <% end %>
+      </tr>
+    </tbody>
+</table>
