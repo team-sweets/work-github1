@@ -11,9 +11,10 @@ class Admin::SearchesController < ApplicationController
 
    def search_for(model, content, method)
      if model == 'customer'
-        Customer.where('name LIKE ?', '%'+content+'%')
+        Customer.where('first_name LIKE ?', '%'+content+'%').
+        or Customer.where('last_name LIKE ?', '%'+content+'%')
      else model = 'product'
-        Product.where('title LIKE ?', '%'+content+'%')
+        Product.where('name LIKE ?', '%'+content+'%')
      end
    end
 end
