@@ -23,7 +23,7 @@ class Customer::CustomersController < ApplicationController
       @cusomer = current_customer
     if @cusomer.update(customer_params)
       redirect_to customers_path
-      flash[:notice] = "Book was successfully updated."
+      flash[:notice_customer] = "会員情報が更新されました。"
     else
       render :edit
     end
