@@ -56,9 +56,11 @@
 <h6><strong>支払方法</strong></h6>
 <%= @order.payment_method %>
 <h6><strong>お届け先</h6>
-<%#= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
-
+〒<%= @order.postage %>
+<%= @order.shipping_address %>
+<%= @order.address_name %>
 <div style="text-align:center"><%= link_to "注文を確定する", thanx_path ,class: "btn btn-success" %> </div>
 </div>
 </div>
+
 

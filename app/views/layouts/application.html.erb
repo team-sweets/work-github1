@@ -155,10 +155,15 @@
    </div>
   </nav>
   <div class="border border-bottom"></div>
-<div class="d-flex justify-content-center">
-      <%#= render 'customer/searches/form' %>
- </header>
 
+  <form class="d-flex justify-content-end">
+   <% if admin_signed_in? %>
+    <%= render 'admin/searches/form' %>
+   <% else %>
+    <%= render 'customer/searches/form' %>
+   <% end %>
+   </form>
+  </header>
   <main class="main">
     <%= yield %>
   </main>
