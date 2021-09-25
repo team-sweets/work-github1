@@ -1,0 +1,89 @@
+ja:
+
+email
+encrypted_password
+reset_password_token
+reset_password_sent_at
+remember_created_at
+created_at
+updated_at
+index_admins_on_email
+index_admins_on_reset_password_token
+
+
+
+customer_id
+product_id
+quantity
+created_at
+updated_at
+
+
+
+email
+encrypted_password
+reset_password_token
+reset_password_sent_at
+remember_created_at
+first_name
+last_name
+kana_first_name
+kana_last_name
+postal_code
+address
+phone_number
+is_deleted
+created_at
+updated_at
+index_customers_on_email
+index_customers_on_reset_password_token
+
+
+
+name
+created_at
+updated_at
+
+
+  create_table "order_details", force: :cascade do |t|
+product_id
+order_id
+quantity
+production_status
+purchased_price
+created_at
+updated_at
+
+
+  create_table "orders", force: :cascade do |t|
+customer_id
+address_name
+shipping_address
+shipping_postal_code
+orders_status
+    t.integer "postage", null: false
+    t.integer "total_price", null: false
+    t.integer "payment_method", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "image_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "tax_out_price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "sales_status", default: true, null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
