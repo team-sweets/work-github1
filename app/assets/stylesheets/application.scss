@@ -86,15 +86,24 @@
   margin-right: 15px;
 }
 
+//footer//
 .fwrapper{
-    padding-bottom: 100px;/*←footerの高さ*/
+    padding-bottom: 200px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
 .footer {
   width: 100%;
-  text-align: center;
   bottom: 0; /*下に固定*/
   background-color: #EEEEEE	;
   position: fixed;
+  height: 100px;
+  text-align: center;
 }
+
+.social {
+  position: absolute;
+  bottom: 17px;
+  right: 150px;
+}
+
