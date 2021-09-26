@@ -59,17 +59,7 @@
 〒<%= @order.postage %>
 <%= @order.shipping_address %>
 <%= @order.address_name %>
-<div style="text-align:center">
- 
- <%= form_with model: @order, url: orders_path, local: true do |f| %>
- <%= f.hidden_field :address_name, value: @order.address_name %>
- <%= f.hidden_field :shipping_address, value: @order.shipping_address %>
- <%= f.hidden_field :shipping_postal_code, value: @order.postage %>
- <%= f.hidden_field :total_price, value: @count %>
- <%= f.hidden_field :customer_id, value: current_customer.id %>
- <%= f.submit "注文を確定する" ,class: "btn btn-success" %>
- <% end %>
- </div>
+<div style="text-align:center"><%= link_to "注文を確定する", thanx_path ,class: "btn btn-success" %> </div>
 </div>
 </div>
 
