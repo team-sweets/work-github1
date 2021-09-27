@@ -42,10 +42,15 @@
           <% @order_details.each do |order_detail| %>
             <tr>
               <td class="text-left" ><%= order_detail.product.name %></td>
-              <td class="text-left"><%= order_detail.purchased_price %></td>
+              <td class="text-left">
+              <% @product_price = order_detail.product.tax_out_price * 1.1 %>
+              ¥<%= @product_price.floor.to_s(:delimited) %>
+              </td>
               <td class = "text-left"><%= order_detail.quantity %></td>
-              <td class = "text-left"><%= order_detail.sum_of_purchased_price.to_s(:delimited) %>
-              <% total_price += order_detail.sum_of_purchased_price %>
+              <td class = "text-left">
+                <% @all_price = @product_price * order_detail.quantity %>
+                ¥<%= @all_price.floor.to_s(:delimited) %>
+                <% total_price += @all_price %>
               </td>
                <%= form_with model: @order_detail, url:admin_order_details_update_path(@order), method: :patch, local:true do |f| %>
               <td class = "text-left">
@@ -63,7 +68,7 @@
         <div class="col-md-5">
           <div>
             <strong>商品合計</strong><br>
-            ¥<%= total_price %>
+            ¥<%= total_price.floor.to_s(:delimited) %>
           </div>
           <div>
             <strong>送料</strong><br>
