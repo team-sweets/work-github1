@@ -12,6 +12,7 @@ class Customer::OrdersController < ApplicationController
       payment_method: params[:order][:payment_method].to_i
     )
 
+   
     if params[:order][:addresses] == "residence"
       @order.postage = current_customer.postal_code
       @order.shipping_address     = current_customer.address
@@ -53,13 +54,12 @@ class Customer::OrdersController < ApplicationController
   end
 
   def index
-    @order_details = OrderDetail.all
-    @orders = current_customer.orders
+    @o = current_customer.orders
+    @orders = @o.reverse
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_details
   end
 
  private

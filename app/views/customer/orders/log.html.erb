@@ -17,10 +17,10 @@
         <tr>
            <% @cart_items.each do |cart_item| %>
            <td><%= attachment_image_tag cart_item.product, :image,size: "50x30" %>  <%= cart_item.product.name %></td>
-           <td><%= cart_item.product.add_tax_tax_out_price.to_s(:delimited) %></td>
-           <td><%= cart_item.quantity %>
+           <td><%= cart_item.product.add_tax_tax_out_price.to_s(:delimited) %>円</td>
+           <td><%= cart_item.quantity %>個
            </td>
-           <td><%= (cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity).to_s(:delimited) %></td>
+           <td><%= (cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity).to_s(:delimited) %>円</td>
            <% @count += cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity  %>
         </tr>
         <% end %>
@@ -31,12 +31,12 @@
     <table border="1"  width="40%" cellpadding="6" cellspacing="0">
       <tr>
        <th width="50%">送料</th>
-       <td width="50%">800</td>
+       <td width="50%">800円</td>
       </tr>
 
       <tr>
        <th width="50%">商品合計</th>
-       <td width="50%"><%= @count.to_s(:delimited) %></td>
+       <td width="50%"><%= @count.to_s(:delimited) %>円</td>
       </tr>
 
       <tr>
@@ -44,7 +44,7 @@
        <td width="50%">
 
         <% @count += 800 %>
-        <%= @count.to_s(:delimited) %>
+        <%= @count.to_s(:delimited) %>円
 
       </tr>
 
