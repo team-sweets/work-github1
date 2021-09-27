@@ -3,8 +3,16 @@
     <h2 class="col-12">会員情報編集</h2>
   </div>
 
+      <% if @customer.errors.any? %>
+      <div class="row error_messages">
+        <strong><font color="red"><%= @customer.errors.count %>件のエラーが発生しました。<br></font></strong>
+        <% @customer.errors.full_messages.each do |message| %>
+          <font color="black">・<%= message %>。<br></font>
+        <% end %>
+      </div>
+      <% end %>
+
       <%= form_with(model:@customer, url:customers_update_path, local: true ,method: :patch) do |f| %>
-      <%= render "customer/shared/error_messages", resource: @customer %>
 
       <div class="row justify-content-center">
         <div class="form-group col-12">

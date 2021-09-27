@@ -7,6 +7,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def log
+
     @cart_items = current_customer.cart_items
     @count = 0
 
@@ -14,7 +15,7 @@ class Customer::OrdersController < ApplicationController
       payment_method: params[:order][:payment_method].to_i
     )
 
-   
+
     if params[:order][:addresses] == "residence"
       @order.postage = current_customer.postal_code
       @order.shipping_address     = current_customer.address
@@ -49,6 +50,14 @@ class Customer::OrdersController < ApplicationController
      end
       @cart_items.destroy_all
       redirect_to thanx_path
+    @order.save
+    #adress = ShippingAddress.new(shipping_parameter)
+
+    flash[:notice] = "ご注文が確定しました。"
+    redirect_to thanx_customers_orders_path
+
+    if params[:order][:ship] == "1"
+      current_customer.shipping_address.create(address_params)
     end
   end
 

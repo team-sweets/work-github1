@@ -1,14 +1,19 @@
 <div class='container'>
-    <% if flash[:success] %>
-		  <div class="flash">
-		  <%= flash[:success] %>
-		  </div>
-	   <% end %>
-　<h3 style="background-color:#DCDCDC; display: inline; ">商品詳細</h3>
+
+  <% if flash[:success] %>
+    <div class="flash">
+      <%= flash[:success] %>
+    </div>
+	<% end %>
+
+	<div class="row subtitle">
+　  <h3 style="display: inline;">商品詳細</h3>
+　</div>
+
 　 <div class='row'>
      <tr class="col-md-12">
-         <div classs="col-md-4">
-          <%= attachment_image_tag @product, :image, size: "300x300", fallback: "no_image.jpg", class: "rounded"  %>
+         <div classs="col-md-3">
+          <%= attachment_image_tag @product, :image, size: "300x300", fallback: "no_image.jpg", class: "rounded cake_image_admin" %>
           </div>
            <div class=“col-md-3”>
                   商品名<br>
