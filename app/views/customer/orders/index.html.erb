@@ -1,43 +1,49 @@
-<div class='container'>
+ <div class='container'>
+
   <div class='row'>
     <h3 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h3>
 
-      <% if @orders.present? %>
+　　　<% if @orders.present? %>
 
-        <table border="1"  width="100%" cellpadding="6" cellspacing="0">
-          <tr>
+
+    <% if @orders.present? %>
+    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+        <tr>
             <th width="10%">注文日</th>
             <th width="30%">配送先</th>
             <th width="30%">注文商品</th>
             <th width="10%">支払金額</th>
             <th width="10%">ステータス</th>
             <th width="10%">注文詳細</th>
-          </tr>
+        </tr>
 
-          <% @orders.each do |order| %>
-              <tr>
-              <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-              <td>
-                〒<%= order.shipping_postal_code %></br>
+
+        <% @orders.each do |order| %>
+      　　<tr>
+        　　<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        　　<td>〒<%= order.shipping_postal_code %></br>
                 <%= order.shipping_address %></br>
                 <%= order.address_name %></br>
-              </td>
-              <td>
-                <% order.order_details.each do |order_detail| %>
-                  <p class="m-0 lh-lg"><%= order_detail.product.name %></p>
-                <% end %>
-              </td>
-              <td><%= order.total_price.to_s(:delimited) %>円</td>
-              <td><%= order.orders_status %></td>
-              <td><%= link_to "表示する", order_show_path(order), class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></td>
-            </tr>
-         <% end %>
-        </table>
+            <td>
+           <% order.order_details.each do |order_detail| %>
+            <p class="m-0 lh-lg"><%= order_detail.product.name %></p>
+            <% end %>
+            </td>
+            <td><%= order.total_price.to_s(:delimited) %>円</td>
+            <td><%= order.orders_status %></td>
+            <td><%= link_to "表示する", order_show_path(order), class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></td>
+          </tr>
 
-     <% else %>
+　　　<% end %>
+    </table>
 
-     <h2>注文履歴がありません。</h2>
-      <% end %>
+
+
+　　　<% else %>
+　　　　<h2>注文履歴がありません。</h2>
+    <% end %>
+
+
 
   </div>
 </div>

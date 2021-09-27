@@ -7,7 +7,7 @@
 	<% end %>
 
 	<div class="row subtitle">
-　  <h3 style="display: inline;">商品詳細</h3>
+　  <h3 style="display: inline;"><strong>商品詳細</strong></h3>
 　</div>
 
 　 <div class='row'>
@@ -30,10 +30,11 @@
                   <%= @product.add_tax_tax_out_price.to_s(:delimited) %><br>
                   (<%= @product.tax_out_price %>)円<br>
                   <% if @product.sales_status == true %>
-                  <p class="text-success">販売中</p>
+                  <strong class="text-success">販売中</strong>
                   <% else @product.sales_status == false %>
-                  <p style="text-secondary">販売停止中</p>
+                  <strong style="text-secondary">販売停止中</strong>
                   <% end %><br>
+                  <p></p>
                   <%= link_to "編集する", admin_product_edit_path, class: "btn btn-success"%>
            </div>
      </tr>
