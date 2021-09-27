@@ -76,7 +76,7 @@ class Customer::OrdersController < ApplicationController
  private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_price)
+    params.require(:order).permit( :address_name, :shipping_address, :shipping_postal_code, :payment_method, :total_price)
   end
 
   def address_params
