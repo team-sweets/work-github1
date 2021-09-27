@@ -2,15 +2,17 @@
     <div class="col-lg-2" ></div>
     <div class="col-lg-8">
 
-    <h5>注文情報確認</h5>
+    <div class="row subtitle justify-content-center">
+      <h5><strong>注文情報確認</strong></h5>
+    </div>
 
 
     <table border="1"  width="100%" cellpadding="6" cellspacing="0">
         <tr>
-            <th width="50%">商品名</th>
-            <th width="20%">単価（税込）</th>
-            <th width="10%">数量</th>
-            <th width="20%">小計</th>
+            <th width="50%" bgcolor="#EEEEEE">商品名</th>
+            <th width="20%" bgcolor="#EEEEEE">単価（税込）</th>
+            <th width="10%" bgcolor="#EEEEEE">数量</th>
+            <th width="20%" bgcolor="#EEEEEE">小計</th>
         </tr>
 
 
@@ -30,17 +32,17 @@
 
     <table border="1"  width="40%" cellpadding="6" cellspacing="0">
       <tr>
-       <th width="50%">送料</th>
+       <th width="50%" bgcolor="#EEEEEE">送料</th>
        <td width="50%">800円</td>
       </tr>
 
       <tr>
-       <th width="50%">商品合計</th>
+       <th width="50%" bgcolor="#EEEEEE">商品合計</th>
        <td width="50%"><%= @count.to_s(:delimited) %>円</td>
       </tr>
 
       <tr>
-       <th width="50%">請求金額</th>
+       <th width="50%" bgcolor="#EEEEEE">請求金額</th>
        <td width="50%">
 
         <% @count += 800 %>
@@ -67,8 +69,10 @@
  <%= f.hidden_field :shipping_postal_code, value: @order.postage %>
  <%= f.hidden_field :total_price, value: @count %>
  <%= f.hidden_field :customer_id, value: current_customer.id %>
- <%= f.submit "注文を確定する" ,class: "btn btn-success" %>
+ <%= f.submit "注文を確定する" ,class: "btn btn-outline-success" %>
  <% end %>
  </div>
 </div>
 </div>
+
+

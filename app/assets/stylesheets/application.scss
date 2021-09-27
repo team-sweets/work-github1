@@ -20,7 +20,7 @@
 
 .background3 {
   width: 100%;
-  height: 600px;
+  height: 800px;
   background-image: url('cake1.jpg');
   background-size: cover;
   background-position: center;
@@ -134,4 +134,10 @@ main {
 
 .error_messages {
   border: solid;
+}
+
+.order-resistration {
+  border-bottom: dotted;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
