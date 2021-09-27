@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   post 'orders' => 'customer/orders#create'
   get 'thanx' => 'customer/orders#thanx'
   get 'orders' =>	'customer/orders#index', as: 'orders_all'
-  get 'orders/:id' =>	'customer/orders#show'
+  get 'orders/:id' =>	'customer/orders#show', as: 'order_show'
 
   get	'shipping_addresses' => 'customer/shipping_addresses#index'
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'
@@ -62,12 +62,12 @@ Rails.application.routes.draw do
     post 'genres' => 'genres#create'
     get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
     patch	'genres/:id/edit' => 'genres#update'
-
     get	'top' => 'orders#top'
-    get	'orders/:id' => 'orders#show'
-    patch	'orders/:id' => 'orders#update'
+    get	'orders/:id' => 'orders#show', as: 'orders_show'
+    patch	'orders/:id' => 'orders#update', as: 'orders_update'
 
-    patch	'order_details/:id' => 'order_details#update'
+    patch	'order_details/:id' => 'order_details#update', as: 'order_details_update'
+
 
     get 'searches' => 'searches#search'
  end

@@ -1,4 +1,6 @@
 class Customer::OrdersController < ApplicationController
+ before_action :authenticate_customer!
+
   def new
     @order = Order.new
     @shipping_addresses = ShippingAddress.where(customer: current_customer)
@@ -13,6 +15,7 @@ class Customer::OrdersController < ApplicationController
       payment_method: params[:order][:payment_method].to_i
     )
 
+   
     if params[:order][:addresses] == "residence"
       @order.postage = current_customer.postal_code
       @order.shipping_address     = current_customer.address
@@ -20,9 +23,9 @@ class Customer::OrdersController < ApplicationController
                            current_customer.last_name
 
     elsif params[:order][:addresses] == "shipping_addresses"
-      ship = ShippingAddress.find(params[:shipping_address_id])
+      ship = ShippingAddress.find(params[:order][:shipping_address])
       @order.postage = ship.postal_code
-      @order.shipping_address     = ship.address
+      @order.shipping_address    = ship.address
       @order.address_name        = ship.name
 
     elsif params[:order][:addresses] == "new_address"
@@ -49,13 +52,12 @@ class Customer::OrdersController < ApplicationController
   end
 
   def index
-    @order_details = OrderDetail.all
-    @orders = current_customer.orders
+    @o = current_customer.orders
+    @orders = @o.reverse
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_details
   end
 
  private
