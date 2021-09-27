@@ -1,18 +1,20 @@
 <div class='container'>
-  <h3 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h3>
+  <div class="row subtitle">
+  <h3 style="display: inline;"><strong>注文履歴詳細</strong></h3>
+  </div>
   <div class='row'>
     <tr class="col-md-12">
       <div class="col-md-3">
-        購入者<br>
-        注文日<br>
-        配送先<br>
+        <strong>購入者</strong><br>
+        <strong>注文日</strong><br>
+        <strong>配送先</strong><br>
         <th></th><br>
         <th></th><br>
-        支払方法<br>
-        注文ステータス
+        <strong>支払方法</strong><br>
+        <strong>注文ステータス</strong>
       </div>
       <div class="col-md-9">
-        <%= link_to @order.address_name, admin_customer_path(@order.customer), class: "link" %><br>
+        <%= link_to @order.address_name, admin_customer_path(@order.customer) , class: "link" %><br>
         <%= @order.created_at.strftime('%Y/%m/%d') %><br>
         〒<%= @order.shipping_postal_code %><br>
         <%= @order.shipping_address %><br>
@@ -20,10 +22,12 @@
         <%= @order.payment_method %><br>
          <%= form_with model: @order, url:admin_orders_update_path(@order), method: :patch, local:true do |f| %>
         <%= f.select :orders_status, Order.orders_statuses.keys, {}, {class: "orders_status"} %>
-        <%= f.submit "更新", class: "glyphicon glyphicon-folder-open btn btn-outline-info"%>
+        <%= f.submit "更新", class: "btn btn-success"%>
         <% end %>
       </div>
     </tr>
+
+
     <tr class="col-md-12">
       <div class="col-md-7">
         <table class="table striped">
@@ -52,19 +56,20 @@
                 ¥<%= @all_price.floor.to_s(:delimited) %>
                 <% total_price += @all_price %>
               </td>
-               <%= form_with model: @order_detail, url:admin_order_details_update_path(@order), method: :patch, local:true do |f| %>
+               <%= form_with model: order_detail, url:admin_order_details_update_path(order_detail), method: :patch, local:true do |f| %>
               <td class = "text-left">
-                <%= f.select :production_status, OrderDetail.production_statuses.keys, {}, {class: "production_status"} %>
+                <%= f.hidden_field :order_id, :value => @order.id %>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"),k]}, {class: "production_status"} %>
                 <%#= f.collection_select :production_status, { 製作不可: 0, 製作待ち: 1, 製作中: 2, 製作完了: 3 }, {}, {class: "production_status"} %>
-                <%= f.submit "更新", class: "glyphicon glyphicon-folder-open btn btn-outline-info"%>
+                <%= f.submit "更新", class: "btn btn-success" %>
               </td>
                 <% end %>
             </tr>
             <% end %>
         </tbody>
-
         </table>
         </div>
+
         <div class="col-md-5">
           <div>
             <strong>商品合計</strong><br>

@@ -49,16 +49,15 @@ class Customer::OrdersController < ApplicationController
        @order_detail.save
      end
       @cart_items.destroy_all
-
+      redirect_to thanx_path
     @order.save
     #adress = ShippingAddress.new(shipping_parameter)
 
     flash[:notice] = "ご注文が確定しました。"
-    redirect_to thanx_path
+    redirect_to thanx_customers_orders_path
 
     if params[:order][:ship] == "1"
       current_customer.shipping_address.create(address_params)
-    end
     end
   end
 
@@ -86,5 +85,6 @@ class Customer::OrdersController < ApplicationController
 
   def to_log
     redirect_to customers_cart_items_path if params[:id] == "log"
+  end
   end
 end
