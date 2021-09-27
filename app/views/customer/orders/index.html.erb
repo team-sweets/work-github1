@@ -1,25 +1,24 @@
-<div class='container'>
+ <div class='container'>
+
   <div class='row'>
     <h3 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h3>
 
-
-      <% if @orders.present? %>
-
-        <table border="1"  width="100%" cellpadding="6" cellspacing="0">
-          <tr>
+    <% if @orders.present? %>
+    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+        <tr>
             <th width="10%">注文日</th>
             <th width="30%">配送先</th>
             <th width="30%">注文商品</th>
             <th width="10%">支払金額</th>
             <th width="10%">ステータス</th>
             <th width="10%">注文詳細</th>
-          </tr>
+        </tr>
 
-          <% @orders.each do |order| %>
-              <tr>
-              <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-              <td>
-                〒<%= order.shipping_postal_code %></br>
+
+        <% @orders.each do |order| %>
+      　　<tr>
+        　　<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        　　<td>〒<%= order.shipping_postal_code %></br>
                 <%= order.shipping_address %></br>
                 <%= order.address_name %></br>
 
@@ -40,6 +39,7 @@
 
      <h2>注文履歴がありません。</h2>
       <% end %>
+
 
   </div>
 </div>

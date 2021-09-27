@@ -1,12 +1,14 @@
 
-    
   <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h5 style="background-color: silver; display: inline;">
-    <%= @customer.full_name %>さんの会員詳細
-  </h5>
-      
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="row subtitle">
+      <h3 style="display: inline;">
+        <strong><%= @customer.full_name %>さんの会員詳細</strong>
+      </h3>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
       <div class="field">
         <p>
           顧客ID　　　　　<%= @customer.id %>

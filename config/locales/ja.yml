@@ -51,3 +51,10 @@ ja:
         postal_code: 郵便番号
         address: 住所
         name: 宛名
+  enums:
+    order_detail:
+      production_status:
+        "製作不可": 製作不可
+        "製作待ち": 製作待ち
+        "製作中": 製作中
+        "製作完了": 製作完了
