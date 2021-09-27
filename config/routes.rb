@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   post 'orders' => 'customer/orders#create'
   get 'thanx' => 'customer/orders#thanx'
   get 'orders' =>	'customer/orders#index', as: 'orders_all'
-  get 'orders/:id' =>	'customer/orders#show'
+  get 'orders/:id' =>	'customer/orders#show', as: 'order_show'
 
   get	'shipping_addresses' => 'customer/shipping_addresses#index'
   post 'shipping_addresses' =>	'customer/shipping_addresses#create'

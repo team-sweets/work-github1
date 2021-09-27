@@ -4,8 +4,8 @@
 
 		<div class="col-xs-offset-1 col-xs-8">
 			<h2 class="head-line text-center title_h2 subtitle row">マイページ</h2>
-			<h4><strong class="information-link fas fa-book">登録情報</strong></h4>
-
+			<h4><strong class="information-link fas fa-book">登録情報</strong>
+        　<%= link_to " 編集する", customers_edit_path, class: "btn btn-outline-success" %></h4>
         <h5><font color="green"><%= flash[:notice_customer] %></font></h5>
 				<table class="table table-bordered table-condensed" >
 					<tbody>
@@ -43,7 +43,7 @@
 					</tbody>
 				</table>
 
-        <%= link_to " 編集する", customers_edit_path, class: "btn btn-outline-success" %>
+  
 
 				<table class='table table-hover table-inverse subtitle'>
 				 <thead>
