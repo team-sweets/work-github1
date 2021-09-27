@@ -6,7 +6,7 @@
     <%= form_with(model: @shipping_address, url: update_address_path, local: true ) do |f| %>
     <%= render "customer/shared/error_messages", resource: @shipping_address %>
 
-      <div class="row form-for-resistration">
+      <div class="row form-for-resistration subtitle">
           <div class="col-3">
             <%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
           </div>
@@ -39,7 +39,7 @@
       <div class="row form-for-resistration">
         <div class="col-3"></div>
         <div class="col-3 subtitle">
-          <%= f.submit "変更内容を保存する", class: "btn btn-primary" %>
+          <%= f.submit "変更内容を保存する", class: "btn btn-outline-primary" %>
         </div>
       </div>
 
