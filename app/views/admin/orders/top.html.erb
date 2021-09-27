@@ -1,20 +1,23 @@
 <div class='container'>
-  <h3 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h3>
-  <div class='row'>
+  <div class="row subtitle">
+    <h3 style="display: inline;">注文履歴一覧</h3>
+  </div>
+
+  <div class='row subtitle'>
     <table class="table striped">
       <thead>
         <tr>
-          <th>購入日時</th>
-          <th>購入者</th>
-          <th>注文個数</th>
-          <th>注文ステータス</th>
+          <th bgcolor="#EEEEEE">購入日時</th>
+          <th bgcolor="#EEEEEE">購入者</th>
+          <th bgcolor="#EEEEEE">注文個数</th>
+          <th bgcolor="#EEEEEE">注文ステータス</th>
         </tr>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
           <tr>
             <td class="text-left"><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_orders_show_path(order), class: "link" %></td>
-            <td class="text-left"><%= order.address_name %></td>
+            <td class="text-left"><%= link_to order.address_name, admin_customer_path(order.customer), class: "link" %></td>
             <td class="text-left" >
               <%= order.order_details.sum(:quantity) %>
               </td>
@@ -27,4 +30,6 @@
       <%= paginate @orders %>
     </table>
   </div>
+
+
 
