@@ -1,5 +1,5 @@
 <div class='container'>
-  <h2 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h2>
+  <h3 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h3>
   <div class='row'>
     <table class="table striped">
       <thead>
@@ -13,7 +13,7 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td class="text-left"><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_top_path(order) , class: "oreder_#{order.id}" %></td>
+            <td class="text-left"><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_orders_show_path(order), class: "link" %></td>
             <td class="text-left"><%= order.address_name %></td>
             <% @order_details.each do |order_detail| %>
             <td class="text-left" ><%= order_detail.quantity %></td>
