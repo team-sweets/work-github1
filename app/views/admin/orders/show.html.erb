@@ -4,7 +4,7 @@
   </div>
   <div class='row'>
     <tr class="col-md-12">
-      <div class="col-md-3">
+      <div class="col-md-3 subtitle">
         <strong>購入者</strong><br>
         <strong>注文日</strong><br>
         <strong>配送先</strong><br>
@@ -13,7 +13,7 @@
         <strong>支払方法</strong><br>
         <strong>注文ステータス</strong>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 subtitle">
         <%= link_to @order.address_name, admin_customer_path(@order.customer) , class: "link" %><br>
         <%= @order.created_at.strftime('%Y/%m/%d') %><br>
         〒<%= @order.shipping_postal_code %><br>
@@ -29,7 +29,7 @@
 
 
     <tr class="col-md-12">
-      <div class="col-md-7">
+      <div class="col-md-7 subtitle">
         <table class="table striped">
         <thead>
           <tr>
@@ -70,14 +70,14 @@
         </table>
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-5 subtitle">
           <div>
             <strong>商品合計</strong><br>
-            ¥<%= total_price.floor.to_s(:delimited) %>
+            <p>¥<%= total_price.floor.to_s(:delimited) %></p>
           </div>
           <div>
             <strong>送料</strong><br>
-            ¥<%= @order.postage %>
+            <p>¥<%= @order.postage %></p>
           </div>
           <div>
             <strong>請求金額合計</strong><br>

@@ -1,15 +1,15 @@
 
 <div class="container">
-<div class="row">
+<div class="row justify-content-center">
   <div calss="col-xs-12">
     <%#= render "layouts/error_messages", resource: @customer %>
-    <h5 style="background-color: silver; display: inline;">
-      <%= @customer.full_name %>さんの会員情報編集
-    </h5>
+    <div class="row subtitle">
+      <h4 style="display: inline;"><strong><%= @customer.full_name %>さんの会員情報編集</strong></h4>
+    </div>
 
   <%= form_with model: @customer, url: admin_customer_update_path(@customer.id), local: true do |f| %>
 
-    <div class="col-xs-10">
+    <div class="col-xs-10 subtitle">
       <div class="form-group col-xs-9">
         <%= f.label :"会員ID", class: "col-sm-4 control-label" %>
         <%= f.label :"#{@customer.id}" %>
@@ -56,7 +56,7 @@
       </div>
     </div>
       <div class="actions  col-xs-9 col-xs-offset-4">
-        <%= f.submit '変更を保存' ,class: "btn btn-primary" %>
+        <%= f.submit '変更を保存' ,class: "btn btn-outline-primary" %>
       </div>
   <% end %>
     </div>
