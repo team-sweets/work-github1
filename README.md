@@ -1,24 +1,29 @@
-# README
+# チームスイーツのECサイト制作による成果物です。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
+  ながのCAKES
 
-Things you may want to cover:
+# 開発環境
+  Ruby on Rails
 
-* Ruby version
+# インストール
+<img width="506" alt="スクリーンショット 2021-09-27 22 36 38" src="https://user-images.githubusercontent.com/86953982/134919447-46c6ee4a-de04-456d-86a9-70292f067da3.png">
 
-* System dependencies
+# ER図
+<img width="871" alt="スクリーンショット 2021-09-27 22 34 12" src="https://user-images.githubusercontent.com/86953982/134918972-659449d6-7ad8-4b39-9dfc-b1a259c2b326.png">
 
-* Configuration
+# アプリケーション詳細設計
+* 管理
+<img width="782" alt="スクリーンショット 2021-09-27 22 38 45" src="https://user-images.githubusercontent.com/86953982/134919808-a0819717-aa72-426c-8743-68a0a0dfc86e.png">
 
-* Database creation
+* 顧客
+<img width="612" alt="スクリーンショット 2021-09-27 22 43 19" src="https://user-images.githubusercontent.com/86953982/134920583-f36c9418-9eba-4254-9441-9e87a981003e.png">
 
-* Database initialization
+# 開発メンバー
+* さくぴー
+* だいちゃん
+* とも
+* とのきちゃん
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 作成期間
+2021/9/11~2021/9/27
