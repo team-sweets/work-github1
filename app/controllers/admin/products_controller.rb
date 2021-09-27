@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+ before_action :authenticate_admin!
+
   def index
    @products = Product.page(params[:page]).per(10)
   end
@@ -11,7 +13,7 @@ class Admin::ProductsController < ApplicationController
   @product = Product.new(product_params)
   if @product.save
    flash[:success] = "新商品を登録しました!"
-   redirect_to admin_products_path(@product.id)
+   redirect_to admin_product_path(@product.id)
   else
    render :new
   end
