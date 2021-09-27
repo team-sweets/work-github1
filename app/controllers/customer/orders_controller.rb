@@ -49,7 +49,6 @@ class Customer::OrdersController < ApplicationController
        @order_detail.save
      end
       @cart_items.destroy_all
-      redirect_to thanx_path
     @order.save
     #adress = ShippingAddress.new(shipping_parameter)
 
