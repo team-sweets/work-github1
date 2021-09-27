@@ -1,2 +1,48 @@
-<h1>Customer::ShippingAddresses#edit</h1>
-<p>Find me in app/views/customer/shipping_addresses/edit.html.erb</p>
+<div class="container">
+  <div class="row subtitle">
+    <h2>配送先編集</h2>
+  </div>
+
+    <%= form_with(model: @shipping_address, url: update_address_path, local: true ) do |f| %>
+    <%= render "customer/shared/error_messages", resource: @shipping_address %>
+
+      <div class="row form-for-resistration subtitle">
+          <div class="col-3">
+            <%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+          </div>
+
+          <div class="col-3">
+            <%= f.text_field :postal_code, placeholder: "郵便番号", autofocus: true, autocomplete: "郵便番号(ハイフンなし)" %>
+          </div>
+      </div>
+
+      <div class="row form-for-resistration">
+          <div class="col-3">
+            <%= f.label :address,"住所" %>
+          </div>
+
+          <div class="col-6">
+            <%= f.text_field :address, placeholder: "住所", autofocus: true, autocomplete: "住所", size: "56x20" %>
+          </div>
+      </div>
+
+      <div class="row form-for-resistration">
+          <div class="col-3">
+            <%= f.label :name,"宛名" %>
+          </div>
+
+          <div class="col-6">
+            <%= f.text_field :name, placeholder: "宛名", autofocus: true, autocomplete: "宛名" %>
+          </div>
+      </div>
+
+      <div class="row form-for-resistration">
+        <div class="col-3"></div>
+        <div class="col-3 subtitle">
+          <%= f.submit "変更内容を保存する", class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+
+</div>

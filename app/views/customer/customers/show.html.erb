@@ -1,2 +1,63 @@
-<h1>Customer::Customers#show</h1>
-<p>Find me in app/views/customer/customers/show.html.erb</p>
+<% provide(:title, "マイページ") %>
+<div class="container">
+	<div class="row">
+
+		<div class="col-xs-offset-1 col-xs-8">
+			<h2 class="head-line text-center title_h2 subtitle row">マイページ</h2>
+			<h4><strong class="information-link fas fa-book">登録情報</strong>
+        　<%= link_to " 編集する", customers_edit_path, class: "btn btn-outline-success" %></h4>
+        <h5><font color="green"><%= flash[:notice_customer] %></font></h5>
+				<table class="table table-bordered table-condensed" >
+					<tbody>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>氏名</strong></td>
+							<td class="text-left"><%= @customer.full_name %></td>
+						</tr>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>カナ</strong></td>
+							<td class="text-left"><%= @customer.kana_full_name %></td>
+						</tr>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>郵便番号</strong></td>
+							<td class="text-left"><%= @customer.postal_code %></td>
+						</tr>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>住所</strong></td>
+							<td class="text-left"><%= @customer.address %></td>
+						</tr>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>電話番号</strong></td>
+							<td class="text-left"><%= @customer.phone_number %></td>
+						</tr>
+
+						<tr>
+							<td bgcolor="#EEEEEE",class="info"><strong>メールアドレス</strong></td>
+							<td class="text-left"><%= @customer.email %></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+
+
+				<table class='table table-hover table-inverse subtitle'>
+				 <thead>
+				     <tr style="border:none;">
+				        <th style="border:none;"><h4><strong class="shipping-link fas fa-people-carry">配送先</strong></h4></th>
+				        <th style="border:none;"><%= link_to " 一覧を見る", shipping_addresses_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></th>
+				     </tr>
+				     <tr style="border:none;">
+				        <th style="border:none;"><h4><strong class="order-link fas fa-clipboard-list">注文履歴</strong></h4></th>
+				        <th style="border:none;"><%= link_to " 一覧を見る", orders_all_path, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %></th>
+				     </tr>
+				 </thead>
+				 </table>
+
+		</div>
+	</div>
+</div>

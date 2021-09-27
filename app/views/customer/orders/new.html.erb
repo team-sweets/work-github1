@@ -1,2 +1,103 @@
-<h1>Customer::Orders#new</h1>
-<p>Find me in app/views/customer/orders/new.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+   <div class="col-lg-6">
+
+      <% if current_customer.cart_items.present? %>
+      <%#= render "layouts/error_messages", resource: @order%>
+
+      <div class="row subtitle justify-content-center">
+        <h3 class="head-line title_h2 text-center">注文情報入力</h3>
+      </div>
+
+        <div class="col-xs-offset-1 subtitle">
+          <%= form_with model: @order, url: orders_log_path, local: true, method: :post do |f| %>
+            <div class="form-group order-resistration">
+              <%= f.radio_button :payment_method, 0, checked: true %>
+              <span>&nbsp;クレジットカード</span>
+
+              <%= f.radio_button :payment_method, 1 %>
+              <span>&nbsp;銀行振込</span>
+            </div>
+
+            <div class="form-group order-resistration">
+              <%= f.radio_button :addresses, "residence", checked: true  %>
+              <span>&nbsp;ご自身の住所</span><br>
+              &emsp;&emsp;〒<%= "#{current_customer.postal_code} #{current_customer.address}" %>
+              <br>
+              &emsp;&emsp;<%= "#{current_customer.first_name} #{current_customer.last_name}" %>
+            </div>
+
+            <div class="form-group order-resistration">
+              <% if @shipping_addresses != [] %>
+              <div class="col-xs-10 radio">
+                <%= f.radio_button :addresses, "shipping_addresses" %>
+                  <span>&nbsp;登録済住所から選択</span><br>
+                &emsp;&emsp;<%= f.collection_select(:shipping_address, current_customer.shipping_addresses, :id, :view_name_and_id) %>
+              </div>
+              <% end %>
+            </div>
+
+        <div class="new-address col-xs-10">
+          <%= f.radio_button :addresses, "new_address" %>
+            <span>&nbsp;新しいお届け先</span><br>
+
+              <div class="form-group">
+                  <div class="col-3">
+                    <span>郵便番号(ハイフンなし)</span>
+                  </div>
+
+                  <div class="col-3">
+                    <%= f.text_field :postal_code, placeholder: "郵便番号", autofocus: true, autocomplete: "郵便番号(ハイフンなし)" %>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-3">
+                    <span>住所</span>
+                  </div>
+
+                  <div class="col-6">
+                    <%= f.text_field :address, placeholder: "お届け先住所", autofocus: true, autocomplete: "住所", size: "56x20" %>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-3">
+                    <span>宛名</span>
+                  </div>
+
+                  <div class="col-3">
+                    <%= f.text_field :name, placeholder: "宛名", autofocus: true, autocomplete: "宛名" %>
+                  </div>
+              </div>
+
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-3">
+                <%= f.submit "確認画面へ進む", class: 'btn btn-outline-primary' %>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+
+      <% else %>
+        <!-- if カートアイテムがない時 -->
+
+        <div class="row subtitle justify-content-center cake_image">
+          <h3 class="head-line title_h2 text-center"><strong>注文情報入力</strong></h3>
+        </div>
+
+        <div class="row justify-content-center subtitle text-center">
+          <h4>ショッピングカートに商品がないため、</h4>
+          <h4>注文情報の入力ができません。</h4>
+        </div>
+
+        <div class="row justify-content-center subtitle">
+          <p><%= link_to "商品一覧", products_path, class: "link btn btn-outline-info" %>　から商品をお探し下さい。</p>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

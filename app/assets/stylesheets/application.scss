@@ -1,0 +1,143 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+
+.background3 {
+  width: 100%;
+  height: 800px;
+  background-image: url('cake1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+    width: auto;
+    height: auto;
+    border-radius: 150px;
+}
+
+.header-logo {
+  font-family: 'Amatic SC', cursive;
+}
+
+.introduction-box {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-image: url('ellycollection067_TP_V.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  color: rgb(0, 0, 0,);
+}
+
+.introduction {
+  background: linear-gradient(transparent 0%, #FFFFFF 0%);
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link {
+  margin-right: 15px;
+}
+
+.header {
+  background-color: #DEB887;
+}
+
+.shortcut {
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+//footer//
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+.footer {
+  width: 100%;
+  background-color: #DEB887;
+  position: fixed;
+  height: 50px;
+  text-align: center;
+  bottom: 0;
+  ;
+}
+
+.social-items {
+  position: absolute;
+  right: 90px;
+}
+
+//footer終わり//
+
+
+// 主にトップ画面の微調整//
+.genre-serch {
+  text-align:center;
+  margin-top: 25px;
+}
+
+.form-for-resistration {
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  margin-top: 30px;
+}
+
+.genre-item {
+  margin: 10px;
+}
+
+main {
+  padding-bottom: 50px;
+}
+
+.cake_image {
+  margin-top: 100px;
+}
+
+.cake_image_admin {
+  margin-right: 100px;
+}
+
+.product_info {
+  margin-left: 100px;
+}
+
+.error_messages {
+  border: solid;
+}
+
+.order-resistration {
+  border-bottom: dotted;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}

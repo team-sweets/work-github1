@@ -1,2 +1,97 @@
-<h1>Customer::ShippingAddresses#index</h1>
-<p>Find me in app/views/customer/shipping_addresses/index.html.erb</p>
+<div class="container">
+  <div class="row subtitle">
+    <h2>配送先登録</h2>
+  </div>
+
+
+      <% if @shipping_address.errors.any? %>
+      <div class="row error_messages">
+        <strong><font color="red"><%= @shipping_address.errors.count %>件のエラーが発生しました。<br></font></strong>
+        <% @shipping_address.errors.full_messages.each do |message| %>
+          <font color="black">・<%= message %>。<br></font>
+        <% end %>
+      </div>
+      <% end %>
+
+
+    <!--配送先住所登録フォーム-->
+      <div class="form-group subtitle">
+        <%= form_with(model: @shipping_address, :url => {:controller => "customer/shipping_addresses"}) do |f| %>
+        <%= render "customer/shared/error_messages", resource: @shipping_address %>
+
+          <div class="row form-for-resistration">
+              <div class="col-3">
+                <%= f.label :postal_code,"郵便番号(ハイフンなし)" %>
+              </div>
+
+              <div class="col-3">
+                <%= f.text_field :postal_code, placeholder: "郵便番号", autofocus: true, autocomplete: "郵便番号(ハイフンなし)" %>
+              </div>
+          </div>
+
+          <div class="row form-for-resistration">
+              <div class="col-3">
+                <%= f.label :address,"住所" %>
+              </div>
+
+              <div class="col-6">
+                <%= f.text_field :address, placeholder: "住所", autofocus: true, autocomplete: "住所", size: "56x20" %>
+              </div>
+          </div>
+
+          <div class="row form-for-resistration">
+              <div class="col-3">
+                <%= f.label :name,"宛名" %>
+              </div>
+
+              <div class="col-6">
+                <%= f.text_field :name, placeholder: "宛名", autofocus: true, autocomplete: "宛名" %>
+              </div>
+          </div>
+
+          <div class="row form-for-resistration">
+            <div class="col-7"></div>
+            <div class="col-5">
+              <%= f.submit '新規登録', class:"btn btn-success" %>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+
+    <!--配送先一覧-->
+    <div class="row subtitle">
+      <h2>配送先一覧</h2>
+    </div>
+
+        <h5><font color="green"><%= flash[:notice_shipping_address] %></font></h5>
+        <div class="row">
+          <table class="table table-bordered table-condensed" >
+
+    	    <thead>
+            <tr>
+                <th bgcolor="#EEEEEE">郵便番号</th>
+                <th bgcolor="#EEEEEE">住所</th>
+                <th bgcolor="#EEEEEE">宛名</th>
+                <th bgcolor="#EEEEEE">編集 / 削除</th>
+            </tr>
+          </thead>
+
+            <% @shipping_addresses.each do |shipping_address| %>
+              <tbody>
+
+                  <td><%= shipping_address.postal_code %></td>
+                  <td><%= shipping_address.address %></td>
+                  <td><%= shipping_address.name %></td>
+                  <td width="20%">
+                    <%= link_to "編集する", edit_address_path(shipping_address.id), class: 'btn btn-outline-secondary' %>&nbsp;&nbsp;
+                    <%= link_to "削除する", delete_address_path(shipping_address.id), class: 'btn btn-outline-danger', method: :delete %>
+                  </td>
+
+              </tbody>
+            <% end %>
+          </table>
+        </div>
+    </div>
+
+</div>

@@ -1,31 +1,212 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>ながのCAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href=https://fonts.googleapis.com/css?family=Caveat rel="stylesheet" >
   </head>
 
-  <body>
-      <% if customer_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </li>
-        
-      <% else %>
-      
-        <li>
-          <%= link_to "新規登録", new_customer_registration_path %>
-        </li>
-        
-        <li>
-          <%= link_to "ログイン", new_customer_session_path %>
-        </li>
-      <% end %>
+  <wrapper>
+    <body>
+      <header class="header">
+        <nav class="navbar navbar-expend-lg navbar-light" >
+          <div class="container">
 
-    <%= yield %>
-  </body>
+            <div class="navbar-brand">
+              <%= link_to root_path, class:"nav-link" do %>
+                <%= image_tag "short_cake.png" %>
+                <strong class="header-logo text-dark">Nagano CAKES</strong>
+              <% end %>
+            </div>
+
+            <ul class="list-group-horizontal navbar-nav ml-auto">
+
+              <!--管理者がログインしている場合-->
+              <% if admin_signed_in? %>
+
+                <div class="row align-items-center">
+                  <nav-item>
+                      <li>
+                        <strong class="text-muted mb-0 nav-link">管理者ログイン中</strong>
+                      </li>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to admin_products_path do %>
+                        <i class="fas fa-birthday-cake nav-link text-black">
+                          <strong>商品一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to admin_customers_path do %>
+                        <i class="fas fa-users nav-link text-black">
+                          <strong>会員一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to admin_top_path do %>
+                        <i class="fas fa-boxes nav-link text-black">
+                          <strong>注文商品一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to admin_genres_path do %>
+                        <i class="fas fa-tags nav-link text-black">
+                          <strong>ジャンル一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to destroy_admin_session_path, method: :delete do %>
+                        <i class="fas fa-sign-out-alt nav-link text-black">
+                          <strong>ログアウト</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                      <div class="d-flex justify-content-end">
+                        <% if admin_signed_in? %>
+                          <%= render 'admin/searches/form' %>
+                        <% else %>
+                          <%= render 'customer/searches/form' %>
+                        <% end %>
+                      </div>
+                  </nav-item>
+                </div>
+
+              <!--ユーザーがログインしている場合-->
+              <% elsif customer_signed_in? %>
+
+                <div class="row align-items-center">
+                  <nav-item>
+                      <li>
+                        <strong class="text-muted mb-0 nav-link">ようこそ、<%= current_customer.first_name %>さん！</strong>
+                      </li>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to customers_path do %>
+                        <i class="fas fa-home nav-link text-black">
+                          <strong>マイページ</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to products_path do %>
+                        <i class="fas fa-birthday-cake nav-link text-black">
+                          <strong>商品一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to cart_items_path do %>
+                        <i class="fas fa-cart-plus nav-link text-black">
+                          <strong>カート</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to destroy_customer_session_path, method: :delete do %>
+                        <i class="fas fa-sign-out-alt nav-link text-black">
+                          <strong>ログアウト</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                      <div class="d-flex justify-content-end">
+                        <% if admin_signed_in? %>
+                          <%= render 'admin/searches/form' %>
+                        <% else %>
+                          <%= render 'customer/searches/form' %>
+                        <% end %>
+                      </div>
+                  </nav-item>
+                </div>
+
+              <!--いずれもログインしていない場合-->
+              <% else %>
+
+                <div class="row align-items-center">
+                  <nav-item>
+                    <%= link_to about_path do %>
+                        <i class="fas fa-info-circle nav-link text-black">
+                          <strong>About</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to products_path do %>
+                        <i class="fas fa-birthday-cake nav-link text-black">
+                          <strong>商品一覧</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to new_customer_registration_path do %>
+                        <i class="fas fa-user-plus nav-link text-black">
+                          <strong>新規登録</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                    <%= link_to new_customer_session_path do %>
+                        <i class="fas fa-sign-in-alt nav-link text-black">
+                          <strong>ログイン</strong>
+                        </i>
+                    <% end %>
+                  </nav-item>
+
+                  <nav-item>
+                      <div class="d-flex justify-content-end">
+                        <% if admin_signed_in? %>
+                          <%= render 'admin/searches/form' %>
+                        <% else %>
+                          <%= render 'customer/searches/form' %>
+                        <% end %>
+                      </div>
+                  </nav-item>
+                </div>
+
+              <% end %>
+
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <%= yield %>
+      </main>
+
+      <footer class="footer text-black align-items-center d-flex justify-content-center">
+        　<span>© All rights reserved by Team-sweets</span>
+          <div class="justify-content-center align-items-center social-items">
+            <i class="fab fa-facebook-square fa-2x text-black"></i>
+            <i class="fab fa-twitter-square fa-2x text-black"></i>
+            <i class="fab fa-instagram fa-2x text-black"></i>
+            <i class="fas fa-envelope fa-2x text-black"></i>
+          </div>
+      </footer>
+
+    </body>
+  </wrapper>
 </html>

@@ -1,2 +1,35 @@
-<h1>Customer::Products#index</h1>
-<p>Find me in app/views/customer/products/index.html.erb</p>
+<div class = "customer-product-index">
+  <div class="col-md-10 mx-auto">
+
+    <h5><font color="green"><%= flash[:notice_log_in] %></font></h5>
+    <h4 class="subtitle"><strong>商品一覧</strong><span>（全<%= @products.total_count %>件中<%= @products.count %>件）</span></h4>
+
+    <div class="row item-group">
+      <% @products.each do |product| %>
+
+        <div class="col-md-3 subtitle">
+          <%= link_to products_show_path(product.id), class:"link" do %>
+            <%= attachment_image_tag product, :image ,size: "210x140", fallback: "no_image.jpg", class: "rounded" %>
+            <div class="shortcut">商品名 : <%= product.name %></div>
+          <% end %>
+
+          <span class="badge badge-pill badge-secondary"><%= product.genre.name %></span>
+
+          <p>
+            <% if product.sales_status == true %>
+                 <p><font color = "green">販売中</font> ¥<%= product.tax_out_price.to_s(:delimited) %></p>
+            <% else product.sales_status == false %>
+                 <p><font color = "red">販売停止中</font> ¥<%= product.tax_out_price.to_s(:delimited) %></p>
+            <% end %>
+          </p>
+        </div>
+
+      <% end %>
+    </div>
+
+    <div style="text-align: center;">
+      <%= paginate @products %>
+    </div>
+
+  </div>
+</div>

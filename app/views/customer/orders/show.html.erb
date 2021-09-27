@@ -1,2 +1,90 @@
-<h1>Customer::Orders#show</h1>
-<p>Find me in app/views/customer/orders/show.html.erb</p>
+<div class='container'>
+  <div class="row subtitle">
+    <h3 style="display: inline;">注文履歴詳細</h3>
+    <p></p>
+  </div>
+
+  <div class='row subtitle'>
+
+  <div class="col-lg-7">
+    <strong>注文情報</strong>
+    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+      <tr>
+        <th width="10%" bgcolor="#EEEEEE">注文日</th>
+        <td width="40%"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th width="10%" bgcolor="#EEEEEE">配送先</th>
+        <td width="40%">
+          〒<%= @order.shipping_postal_code %></br>
+          <%= @order.shipping_address %></br>
+          <%= @order.address_name %></br>
+        </td>
+      </tr>
+      <tr>
+        <th width="10%" bgcolor="#EEEEEE">支払方法</th>
+        <td width="40%"><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+        <th width="10%" bgcolor="#EEEEEE">ステータス</th>
+        <td width="40%"><%= @order.orders_status %></td>
+      </tr>
+    </table>
+  </div>
+
+    <div class="col-lg-4 off-set-lg-1">
+    <strong>請求情報</strong>
+    <table border="1"  width="100%" cellpadding="6" cellspacing="0">
+      <tr>
+        <th width="20%" bgcolor="#EEEEEE">商品合計</th>
+        <td width="20%">
+          <%= (@order.total_price.to_i - 800.to_i).to_s(:delimited) %>円
+        </td>
+      </tr>
+      <tr>
+        <th width="20%" bgcolor="#EEEEEE">配送料</th>
+        <td width="20%">800円</td>
+      </tr>
+      <tr>
+        <th width="20%" bgcolor="#EEEEEE">ご請求額</th>
+        <td width="20%"><%= @order.total_price.to_s(:delimited) %>円</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+<p></p>
+
+<strong>注文内容</strong>
+    <div class='row'>
+     <div class="col-lg-12">
+         <table border="1"  width="70%" cellpadding="6" cellspacing="0">
+          <tr>
+            <th width="40%" bgcolor="#EEEEEE">商品</th>
+            <th width="15%" bgcolor="#EEEEEE">単価（税込）</th>
+            <th width="10%" bgcolor="#EEEEEE">個数</th>
+            <th width="15%" bgcolor="#EEEEEE">小計</th>
+
+          <% @order.order_details.each do |order_detail| %>
+          </tr>
+            <td width="40%"><%= order_detail.product.name %></td>
+            <td width="15%"><%= order_detail.product.add_tax_tax_out_price.to_s(:delimited) %>円</td>
+            <td width="10%"><%= order_detail.quantity %>個</td>
+            <td width="15%"><%= (order_detail.product.add_tax_tax_out_price.to_i*order_detail.quantity.to_i).to_s(:delimited)  %>円</td>
+          <tr>
+          <% end %>
+          </tr>
+        </table>
+    </div>
+    </div>
+
+    <p></p>
+
+
+   <div align='center'>
+    <% if customer_signed_in? %>
+      <%= link_to "注文履歴一覧へ戻る", orders_all_path(@order), class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
+    <% else %>
+      <%= link_to "会員詳細へ戻る", admin_customers_path, class: "glyphicon glyphicon-folder-open btn btn-outline-info" %>
+    <% end %>
+   </div>

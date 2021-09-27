@@ -1,0 +1,7 @@
+<% if @model == 'customer' %>
+  <h3>"<%= @content %>"の検索結果</h3>
+  <%= render 'admin/customers/list', customers: @records %>
+<% else @model == 'products' %>
+  <h3>"<%= @content %>"の検索結果</h3>
+    <%= render 'admin/products/list', products: @records %>
+<% end %>

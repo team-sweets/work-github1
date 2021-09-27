@@ -1,2 +1,63 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+
+  <div class="container">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="row subtitle">
+      <h3 style="display: inline;">
+        <strong><%= @customer.full_name %>さんの会員詳細</strong>
+      </h3>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+      <div class="field">
+        <p>
+          顧客ID　　　　　<%= @customer.id %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          氏名　　　　　　<%= @customer.full_name %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          フリガナ　　　　<%= @customer.kana_full_name %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          郵便番号　　　　<%= @customer.postal_code %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          住所　　　　　　<%= @customer.address %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          電話番号　　　　<%= @customer.phone_number %>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          メールアドレス　<%= @customer.email%>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          会員ステータス  <% if @customer.is_deleted == true %>
+                          <strong class="text-secondary">退会</strong>
+                          <% else %>
+                          <strong class="text-success">有効</strong>
+                          <% end %>
+        </p>
+      </div>
+
+
+      <div class="actions">
+        <%= link_to "編集する",admin_customer_edit_path(@customer), class: "glyphicon glyphicon-pencil btn btn-success edit_shipping_addres_#{@customer.id}" %>
+        <%= link_to " 注文履歴一覧を見る", admin_top_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+      </div>
+    </div>
+  </div>

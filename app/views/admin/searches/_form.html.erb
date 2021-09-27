@@ -1,0 +1,7 @@
+<%= form_tag(admin_searches_path, method: :get) do %>
+    <%= text_field_tag 'content'%>
+    <%= select_tag 'model', options_for_select({ "会員" => "customer", "商品" => "product" }) %>
+      <span class="search-button col-xs-12 text-right">
+        <%= submit_tag :"検索" %>
+      </span>
+    <% end %>

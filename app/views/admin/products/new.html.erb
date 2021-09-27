@@ -1,2 +1,59 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<div class='container'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+    <div class="row">
+      <% if @product.errors.any? %>
+      <div class="row error_messages">
+        <strong><font color="red"><%= @product.errors.count %>件のエラーが発生しました。<br></font></strong>
+        <% @product.errors.full_messages.each do |message| %>
+          <font color="black">・<%= message %>。<br></font>
+        <% end %>
+      </div>
+      <% end %>
+
+      <div class="row subtitle">
+   　  <h3 style="display: inline;"><strong>商品新規登録</strong></h3>
+  　　</div>
+
+      <%= form_with model: @product, url:'/admin/products', local:true do |f| %>
+
+     <div class="form-group">
+       <label for="Image">商品画像</label>
+        <%= f.attachment_field :image %>
+     </div>
+
+      <div class="form-group">
+       <%= f.label :name,"商品名" %>
+       <%= f.text_field :name, class: "form-control name", placeholder: "商品名" %>
+      </div>
+
+       <div class="form-group">
+        <%= f.label :description,"商品説明" %>
+         <%= f.text_area :description, class: "form-control description", placeholder: "ここに説明文を記述します" %>
+       </div>
+
+       <div class="form-group">
+         <%= f.label :genre_id,"ジャンル" %>
+         <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" %>
+       </div>
+
+        <div class="form-group">
+          <%= f.label :total_price,"税抜価格" %>
+          <%= f.text_field :tax_out_price, class: "form-control-static tax_out_price", placeholder: "1000" %>円
+        </div>
+
+            <div class="form-group">
+          <%= f.label :sales_status,"販売ステータス", class: "control-label" %>
+          <%= f.radio_button :sales_status, :true %>
+          <%= f.label :sales_status, '販売中' %>
+          <%= f.radio_button :sales_status, :false %>
+          <%= f.label :sales_status, '販売停止中' %>
+          <%#= f.select :is_sale, [['販売中', true], ['販売停止', false]], prompt: "-- 選択してください --", class: "col-sm-9 is_sale" %>
+          </div>
+
+          <%= f.submit '新規登録', class: "btn btn-success" %>
+          <% end %>
+
+    </div>
+  </div>
+</div>
