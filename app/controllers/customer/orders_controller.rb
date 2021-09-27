@@ -54,7 +54,7 @@ class Customer::OrdersController < ApplicationController
     #adress = ShippingAddress.new(shipping_parameter)
 
     flash[:notice] = "ご注文が確定しました。"
-    redirect_to thanx_customers_orders_path
+    redirect_to thanx_path
 
     if params[:order][:ship] == "1"
       current_customer.shipping_address.create(address_params)
