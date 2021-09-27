@@ -19,10 +19,18 @@
         <div class="form-group">
             <%= f.radio_button :addresses, "residence", checked: true  %>
             <span>&nbsp;ご自身の住所</span><br>
-            &emsp;&emsp;<%= "#{current_customer.postal_code} #{current_customer.address}" %>
+            &emsp;&emsp;〒<%= "#{current_customer.postal_code} #{current_customer.address}" %>
             <br>
             &emsp;&emsp;<%= "#{current_customer.first_name} #{current_customer.last_name}" %>
           </div>
+
+          <% if @shipping_addresses != [] %>
+          <div class="col-xs-10 radio">
+            <%= f.radio_button :addresses, "shipping_addresses" %>
+              <span>&nbsp;登録済住所から選択</span><br>
+            &emsp;&emsp;<%= f.collection_select(:shipping_address, current_customer.shipping_addresses, :id, :view_name_and_id) %>
+          </div>
+          <% end %>
 
           <div class="new-address col-xs-10 radio">
             <%= f.radio_button :addresses, "new_address" %>
