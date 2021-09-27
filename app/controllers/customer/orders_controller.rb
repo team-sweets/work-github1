@@ -48,8 +48,8 @@ class Customer::OrdersController < ApplicationController
        @order_detail.purchased_price = cart_item.product.add_tax_tax_out_price.to_i*cart_item.quantity
        @order_detail.save
      end
+    end
       @cart_items.destroy_all
-      redirect_to thanx_path
     @order.save
     #adress = ShippingAddress.new(shipping_parameter)
 
@@ -85,6 +85,5 @@ class Customer::OrdersController < ApplicationController
 
   def to_log
     redirect_to customers_cart_items_path if params[:id] == "log"
-  end
   end
 end
