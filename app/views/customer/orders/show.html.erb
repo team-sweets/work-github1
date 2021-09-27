@@ -1,17 +1,20 @@
 <div class='container'>
-  <h3 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h3>
-  <p></p>
-  <div class='row'>
+  <div class="row subtitle">
+    <h3 style="display: inline;">注文履歴詳細</h3>
+    <p></p>
+  </div>
+
+  <div class='row subtitle'>
 
   <div class="col-lg-7">
     <strong>注文情報</strong>
     <table border="1"  width="100%" cellpadding="6" cellspacing="0">
       <tr>
-        <th width="10%">注文日</th>
+        <th width="10%" bgcolor="#EEEEEE">注文日</th>
         <td width="40%"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
-        <th width="10%">配送先</th>
+        <th width="10%" bgcolor="#EEEEEE">配送先</th>
         <td width="40%">
           〒<%= @order.shipping_postal_code %></br>
           <%= @order.shipping_address %></br>
@@ -19,11 +22,11 @@
         </td>
       </tr>
       <tr>
-        <th width="10%">支払方法</th>
+        <th width="10%" bgcolor="#EEEEEE">支払方法</th>
         <td width="40%"><%= @order.payment_method %></td>
       </tr>
       <tr>
-        <th width="10%">ステータス</th>
+        <th width="10%" bgcolor="#EEEEEE">ステータス</th>
         <td width="40%"><%= @order.orders_status %></td>
       </tr>
     </table>
@@ -33,17 +36,17 @@
     <strong>請求情報</strong>
     <table border="1"  width="100%" cellpadding="6" cellspacing="0">
       <tr>
-        <th width="20%">商品合計</th>
+        <th width="20%" bgcolor="#EEEEEE">商品合計</th>
         <td width="20%">
           <%= (@order.total_price.to_i - 800.to_i).to_s(:delimited) %>円
         </td>
       </tr>
       <tr>
-        <th width="20%">配送料</th>
+        <th width="20%" bgcolor="#EEEEEE">配送料</th>
         <td width="20%">800円</td>
       </tr>
       <tr>
-        <th width="20%">ご請求額</th>
+        <th width="20%" bgcolor="#EEEEEE">ご請求額</th>
         <td width="20%"><%= @order.total_price.to_s(:delimited) %>円</td>
       </tr>
     </table>
@@ -57,10 +60,10 @@
      <div class="col-lg-12">
          <table border="1"  width="70%" cellpadding="6" cellspacing="0">
           <tr>
-            <th width="40%">商品</th>
-            <th width="15%">単価（税込）</th>
-            <th width="10%">個数</th>
-            <th width="15%">小計</th>
+            <th width="40%" bgcolor="#EEEEEE">商品</th>
+            <th width="15%" bgcolor="#EEEEEE">単価（税込）</th>
+            <th width="10%" bgcolor="#EEEEEE">個数</th>
+            <th width="15%" bgcolor="#EEEEEE">小計</th>
 
           <% @order.order_details.each do |order_detail| %>
           </tr>
