@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
+ before_action :authenticate_admin!
+  
   def top
     @orders = Order.page(params[:page]).per(10)
     @order_details = OrderDetail.all

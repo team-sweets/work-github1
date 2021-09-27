@@ -1,4 +1,6 @@
 class Customer::OrdersController < ApplicationController
+ before_action :authenticate_customer!
+
   def new
     @order = Order.new
     @shipping_addresses = ShippingAddress.where(customer: current_customer)
@@ -19,9 +21,9 @@ class Customer::OrdersController < ApplicationController
                            current_customer.last_name
 
     elsif params[:order][:addresses] == "shipping_addresses"
-      ship = ShippingAddress.find(params[:shipping_address_id])
+      ship = ShippingAddress.find(params[:order][:shipping_address])
       @order.postage = ship.postal_code
-      @order.shipping_address     = ship.address
+      @order.shipping_address    = ship.address
       @order.address_name        = ship.name
 
     elsif params[:order][:addresses] == "new_address"
