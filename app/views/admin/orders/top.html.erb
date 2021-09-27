@@ -15,9 +15,9 @@
           <tr>
             <td class="text-left"><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_orders_show_path(order), class: "link" %></td>
             <td class="text-left"><%= order.address_name %></td>
-            <% @order_details.each do |order_detail| %>
-            <td class="text-left" ><%= order_detail.quantity %></td>
-            <% end %>
+            <td class="text-left" >
+              <%= order.order_details.sum(:quantity) %>
+              </td>
             <td class="text-left" >
             <%= order.orders_status %>
             </td>
