@@ -2,6 +2,7 @@
   <div class='row'>
     <h3 style="background-color:#DCDCDC; display: inline;">注文履歴一覧</h3>
 
+
       <% if @orders.present? %>
 
         <table border="1"  width="100%" cellpadding="6" cellspacing="0">
@@ -21,6 +22,7 @@
                 〒<%= order.shipping_postal_code %></br>
                 <%= order.shipping_address %></br>
                 <%= order.address_name %></br>
+
               </td>
               <td>
                 <% order.order_details.each do |order_detail| %>

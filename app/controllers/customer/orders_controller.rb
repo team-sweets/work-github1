@@ -87,4 +87,5 @@ class Customer::OrdersController < ApplicationController
   def to_log
     redirect_to customers_cart_items_path if params[:id] == "log"
   end
+  end
 end
