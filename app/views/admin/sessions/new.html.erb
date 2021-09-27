@@ -1,25 +1,37 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-
-      <div style="background-color: silver; display: inline;"　>管理者ログイン</div>
-
-<%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+<div class="container">
+  <div class="row subtitle justify-content-center cake_image">
+    <h2 style="background-color: silver;">管理者ログイン</h2>
   </div>
 
-  <div class="form-group">
-    <%= f.label :"パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
 
 
+    <div class="row form-for-resistration justify-content-center subtitle">
+      <div class="col-2">
+        <strong><%= f.label :email,"メールアドレス" %></strong>
+      </div>
 
-  <div class="form-group">
-    <%= f.submit "ログイン", class: 'btn btn-primary' %>
-  </div>
-<% end %>
+      <div class="col-2">
+        <%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
 
-<%#= render "admin/shared/links" %>
+    <div class="row form-for-resistration justify-content-center">
+      <div class="col-2">
+        <strong><%= f.label :password,"パスワード" %></strong>
+      </div>
+
+      <div class="col-2">
+        <%= f.password_field :password, placeholder: "管理者パスワード", autofocus: true, autocomplete: "password" %>
+      </div>
+    </div>
+
+    <div class="row form-for-resistration justify-content-end">
+      <div class="col-4 form-for-resistration subtitle">
+        <%= f.submit "ログイン",class:"btn btn-outline-primary" %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>

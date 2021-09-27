@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row subtitle">
     <h2>ログイン</h2>
   </div>
 
@@ -7,7 +7,11 @@
     <h4>会員の方はこちらからログイン</h4>
   </div>
 
-  <%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
+    <div class='login-flash-message'>
+      <h5><font color="green"><%= flash[:notice] %></font></h5>
+      <h5><font color="green"><%= flash[:alert] %></font></h5>
+    </div>
+    <%= form_with model: @customer, url: customer_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
     <div class="row form-for-resistration">
       <div class="col-3">
