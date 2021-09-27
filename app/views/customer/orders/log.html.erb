@@ -60,7 +60,7 @@
 <%= @order.shipping_address %>
 <%= @order.address_name %>
 <div style="text-align:center">
- 
+
  <%= form_with model: @order, url: orders_path, local: true do |f| %>
  <%= f.hidden_field :address_name, value: @order.address_name %>
  <%= f.hidden_field :shipping_address, value: @order.shipping_address %>
@@ -72,5 +72,3 @@
  </div>
 </div>
 </div>
-
-

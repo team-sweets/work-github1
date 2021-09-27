@@ -62,12 +62,12 @@ Rails.application.routes.draw do
     post 'genres' => 'genres#create'
     get	'genres/:id/edit' => 'genres#edit', as: 'genres_edit'
     patch	'genres/:id/edit' => 'genres#update'
-
     get	'top' => 'orders#top'
-    get	'orders/:id' => 'orders#show'
-    patch	'orders/:id' => 'orders#update'
+    get	'orders/:id' => 'orders#show', as: 'orders_show'
+    patch	'orders/:id' => 'orders#update', as: 'orders_update'
 
-    patch	'order_details/:id' => 'order_details#update'
+    patch	'order_details/:id' => 'order_details#update', as: 'order_details_update'
+
 
     get 'searches' => 'searches#search'
  end
