@@ -8,7 +8,7 @@ class Customer::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items
     @count = 0
   end
-git checkout develop
+
   def update
     cart_item = CartItem.find(params[:id])
     if cart_item.update(params_cart_item)
