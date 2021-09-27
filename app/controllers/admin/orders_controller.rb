@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
   
   def top
     @orders = Order.page(params[:page]).per(10)
+    @order_details = OrderDetail.all
   end
 
   def show
@@ -12,11 +13,11 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if  @order.update(order_params)
-      　flash[:success] = "注文ステータスを変更しました"
-        redirect_to admin_top_path(@order)
+    if @order.update_attribute(:orders_status, order_params[:orders_status])
+      flash[:success] = "注文ステータスを変更しました"
+       redirect_to admin_orders_show_path(@order)
     else
-        render show
+        render :show
     end
   end
 

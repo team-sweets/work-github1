@@ -1,24 +1,27 @@
 <div class='container'>
-  <h2 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h2>
+  <h3 style="background-color:#DCDCDC; display: inline;">注文履歴詳細</h3>
   <div class='row'>
-    <%= form_with model: @order, url:admin_top_path(@order) local:true do |f| %>
     <tr class="col-md-12">
       <div class="col-md-3">
         購入者<br>
         注文日<br>
         配送先<br>
         <th></th><br>
+        <th></th><br>
         支払方法<br>
         注文ステータス
       </div>
       <div class="col-md-9">
-        <%= link_to @order.address_name, admin_customer_path(@order) , class: "oreder_#{@order.id}" %><br>
-        <%= @order.created_at %><br>
-        <%= @order.shipping_postal_code %> <%= @order.shipping_address %><br>
+        <%= link_to @order.address_name, admin_customer_path(@order) , class: "link" %><br>
+        <%= @order.created_at.strftime('%Y/%m/%d') %><br>
+        〒<%= @order.shipping_postal_code %><br>
+        <%= @order.shipping_address %><br>
         <%= @order.address_name %><br>
         <%= @order.payment_method %><br>
-        <%= f.select :orders_status, Order, :orders_status, class "orders_status", include_blank: "-- 選択してください --" %>
-        <%= link_to "更新", admin_top_path(@order), class: "btn btn-success"%>
+         <%= form_with model: @order, url:admin_orders_update_path(@order), method: :patch, local:true do |f| %>
+        <%= f.select :orders_status, Order.orders_statuses.keys, {}, {class: "orders_status"} %>
+        <%= f.submit "更新", class: "glyphicon glyphicon-folder-open btn btn-outline-info"%>
+        <% end %>
       </div>
     </tr>
     <tr class="col-md-12">
@@ -38,36 +41,38 @@
           <% total_price = 0 %>
           <% @order_details.each do |order_detail| %>
             <tr>
-              <td class="text-left" ><%= order_detail.name %></td>
+              <td class="text-left" ><%= order_detail.product.name %></td>
               <td class="text-left"><%= order_detail.purchased_price %></td>
               <td class = "text-left"><%= order_detail.quantity %></td>
               <td class = "text-left"><%= order_detail.sum_of_purchased_price.to_s(:delimited) %>
               <% total_price += order_detail.sum_of_purchased_price %>
               </td>
+               <%= form_with model: @order_detail, url:admin_order_details_update_path(@order), method: :patch, local:true do |f| %>
               <td class = "text-left">
-                <%= f.select :production_status, Order_detail, :production_status, class "production_status", include_blank: "-- 選択してください --" %>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys, {}, {class: "production_status"} %>
+                <%#= f.collection_select :production_status, { 製作不可: 0, 製作待ち: 1, 製作中: 2, 製作完了: 3 }, {}, {class: "production_status"} %>
+                <%= f.submit "更新", class: "glyphicon glyphicon-folder-open btn btn-outline-info"%>
               </td>
-              <td>
-                <%= link_to "更新", admin_top_path(@order), class: "btn btn-success"%>
-              </td>
+                <% end %>
             </tr>
             <% end %>
         </tbody>
+
         </table>
         </div>
         <div class="col-md-5">
           <div>
-            <p>商品合計</p>
-            <%= total_price %>
+            <strong>商品合計</strong><br>
+            ¥<%= total_price %>
           </div>
           <div>
-            <p>送料</p>
-            <%= @order.postage %>
+            <strong>送料</strong><br>
+            ¥<%= @order.postage %>
           </div>
           <div>
-            <P>請求金額合計</p>
+            <strong>請求金額合計</strong><br>
             <% @order.total_price = total_price + @order.postage %>
-            <%= @order.total_price %>
+            ¥<%= @order.total_price %>
           </div>
         </div>
     </tr>
